@@ -1,0 +1,7 @@
+<div class="container-fluid" style="height: 100vh">
+  <app-map (markerClick)="markerClickAction($event, markerDetails)"></app-map>
+</div>
+
+<ng-template #markerDetails>
+        {{chosenMarker}}
+</ng-template>
