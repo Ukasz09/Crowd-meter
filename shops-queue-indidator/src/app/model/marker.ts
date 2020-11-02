@@ -3,6 +3,7 @@ export class MarkerModel {
     public id: string,
     public latitude: number,
     public longitude: number,
+    public city: string,
     public street: string,
     public housenumber: string,
     public amenity: string,

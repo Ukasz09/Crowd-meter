@@ -1,14 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  TemplateRef,
-} from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerModel } from 'src/app/model/marker';
+import { MarkersService } from 'src/app/services/markers.service';
 
 @Component({
   selector: 'app-map',
@@ -23,31 +16,32 @@ export class MapComponent implements OnInit {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   };
 
-  map: L.Map;
-
   @Output() markerClick: EventEmitter<any> = new EventEmitter();
+
+  map: L.Map;
+  displayedMarkers: MarkerModel[] = [];
+  markersLayer: L.LayerGroup<L.Marker>;
+
+  constructor(private markersService: MarkersService) {}
 
   ngOnInit(): void {
     this.initMap();
-    this.addMarker(
-      new MarkerModel(
-        '1',
-        this.mapStartedLatLng[0],
-        this.mapStartedLatLng[1],
-        'Konska',
-        '51a',
-        'pub',
-        'Sklep z Kotami'
-      )
-    );
   }
 
   private initMap() {
+    this.markersLayer = L.layerGroup();
     this.map = L.map('map-container', {
       center: this.mapStartedLatLng,
       zoom: 15,
     });
     this.initMapTiles();
+    this.initMarkers();
+  }
+  private initMarkers() {
+    this.markersService.getMarkers().subscribe((data: MarkerModel[]) => {
+      this.displayedMarkers = data;
+      this.updateMarkers();
+    });
   }
 
   private initMapTiles() {
@@ -58,9 +52,18 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
   }
 
-  private addMarker(model: MarkerModel) {
-    var marker = L.marker([model.latitude, model.longitude]);
+  private updateMarkers() {
+    this.markersLayer.clearLayers();
+    let markers = [];
+    for (let model of this.displayedMarkers)
+      markers.push(this.getMarker(model));
+    this.markersLayer = L.layerGroup(markers);
+    this.markersLayer.addTo(this.map);
+  }
+
+  private getMarker(model: MarkerModel) {
+    let marker = L.marker([model.latitude, model.longitude]);
     marker.on('click', (_) => this.markerClick.emit(model));
-    marker.addTo(this.map);
+    return marker;
   }
 }

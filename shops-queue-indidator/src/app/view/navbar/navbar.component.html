@@ -1,0 +1,65 @@
+<nav
+  class="navbar navbar-expand-lg sticky-top bg-light border border-info py-1"
+  style="height: 75px"
+>
+  <!-- CENTERED -->
+  <div class="container py-4">
+    <div class="navbar-brand mx-5 my-5">
+      <img src="{{ logoImgPath }}" />
+    </div>
+    <div class="w-100">
+      <input
+        class="form-control w-100"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </div>
+  </div>
+  <!-- /CENTERED -->
+  <!-- FILTER BTN -->
+  <!-- <div class="btn-group" > -->
+  <div
+    class="btn-group"
+    [insideClick]="true"
+    dropdown
+    #accountDropdown="bs-dropdown"
+  >
+    <button
+      id="button-animated"
+      dropdownToggle
+      type="button"
+      class="btn btn-outline-dark btn-group"
+      aria-controls="dropdown-animated"
+    >
+      <i class="material-icons">filter_alt</i>
+      <span class="caret dropdown-toggle"></span>
+    </button>
+    <ul
+      id="dropdown-animated"
+      *dropdownMenu
+      class="dropdown-menu dropdown-menu-right"
+      role="menu"
+      aria-labelledby="button-animated"
+    >
+      <li role="menuitem">
+        <div class="bg-warning d-flex align-items-center justify-content-center" href="#">
+          <input id="test" type="checkbox" checked />
+          <span for="test" class="mx-3"> pubs </span>
+        </div>
+      </li>
+      <li role="menuitem">
+        <a class="dropdown-item" href="#">
+          <span class="mx-3"> dummy </span>
+        </a>
+      </li>
+      <li role="menuitem">
+        <a class="dropdown-item" routerLink="/home">
+          <span class="mx-3"> dummy </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- </div> -->
+  <!-- /FILTER BTN -->
+</nav>

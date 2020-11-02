@@ -1,0 +1,102 @@
+[
+  {
+    "id": 6298096363,
+    "latitude": 51.1119685,
+    "longitude": 17.0323701,
+    "city": "Wroc\u0142aw",
+    "street": "Kotlarska",
+    "housenumber": "25",
+    "amenity": "cafe",
+    "name": "Sorrir"
+  },
+  {
+    "id": 6298297217,
+    "latitude": 51.1130204,
+    "longitude": 17.0594831,
+    "city": "Wroc\u0142aw",
+    "street": "Plac Grunwaldzki",
+    "housenumber": "22",
+    "amenity": "cafe",
+    "name": "Etno Caf\u00e8"
+  },
+  {
+    "id": 6301946286,
+    "latitude": 51.1087491,
+    "longitude": 16.939241,
+    "city": "Wroc\u0142aw",
+    "street": "Graniczna",
+    "housenumber": "4a",
+    "amenity": "cafe",
+    "name": "Etno Caf\u00e8"
+  },
+  {
+    "id": 6311785150,
+    "latitude": 51.1044923,
+    "longitude": 17.0841579,
+    "city": "Wroc\u0142aw",
+    "street": "Tramwajowa",
+    "housenumber": "2",
+    "amenity": "cafe",
+    "name": "Wuwa Caf\u00e9"
+  },
+  {
+    "id": 6311815713,
+    "latitude": 51.1169801,
+    "longitude": 17.0326549,
+    "city": "Wroc\u0142aw",
+    "street": "Stanis\u0142awa Dubois",
+    "housenumber": "6/2",
+    "amenity": "cafe",
+    "name": "\u0141askotki"
+  },
+  {
+    "id": 6367758663,
+    "latitude": 51.1126937,
+    "longitude": 17.0228337,
+    "city": "Wroc\u0142aw",
+    "street": "Podwale",
+    "housenumber": "6",
+    "amenity": "cafe",
+    "name": "Bolter Cafe"
+  },
+  {
+    "id": 6375910123,
+    "latitude": 51.1040819,
+    "longitude": 17.0812964,
+    "city": "Wroc\u0142aw",
+    "street": "Zygmunta Wr\u00f3blewskiego",
+    "housenumber": "7",
+    "amenity": "cafe",
+    "name": "Petits Fours Caf\u00e9"
+  },
+  {
+    "id": 6402930598,
+    "latitude": 51.1101717,
+    "longitude": 17.02932,
+    "city": "Wroc\u0142aw",
+    "street": "Kie\u0142ba\u015bnicza",
+    "housenumber": "2",
+    "amenity": "cafe",
+    "name": "Czarna Magia"
+  },
+  {
+    "id": 6634188040,
+    "latitude": 51.1101665,
+    "longitude": 17.032358,
+    "city": "Wroc\u0142aw",
+    "street": "Przej\u015bcie Garncarskie 2",
+    "housenumber": "Przej\u015bcie Garncarskie 2",
+    "amenity": "cafe",
+    "name": "Tajne Komplety"
+  },
+  {
+    "id": 6757884544,
+    "latitude": 51.1103529,
+    "longitude": 17.0302618,
+    "city": "Wroc\u0142aw",
+    "housenumber": "6",
+    "street": "Rynek",
+    "amenity": "cafe",
+    "name": "Popi\u00f3\u0142 i Diament"
+  }
+]
