@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlaceCategory } from 'src/app/model/place-category';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  logoImgPath = 'assets/images/logo.png';
+  readonly LOGO_IMG_PATH = 'assets/images/logo.png';
+  @Input() categories: PlaceCategory[];
 
   constructor() {}
 

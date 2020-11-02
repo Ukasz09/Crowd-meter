@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [categories]="categories"></app-navbar>
 <div class="container-fluid" style="height: 100vh">
   <app-map (markerClick)="markerClickAction($event, markerDetails)"></app-map>
 </div>

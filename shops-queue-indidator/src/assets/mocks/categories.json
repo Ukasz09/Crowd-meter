@@ -1,0 +1,27 @@
+[
+  {
+    "name": "food",
+    "amenities": [
+      "bar",
+      "biergarten",
+      "fast_food",
+      "cafe",
+      "food_court",
+      "ice_cream",
+      "pub",
+      "restaurant"
+    ]
+  },
+  {
+    "name": "education",
+    "amenities": ["college", "kindergarten", "library", "school", "university"]
+  },
+  {
+    "name": "healthcare",
+    "amenities": ["dentist", "hospital", "pharmacy", "veterinary"]
+  },
+  {
+    "name": "entertainment",
+    "amenities": ["casino", "cinema", "nightclub", "theatre"]
+  }
+]

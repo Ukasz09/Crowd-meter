@@ -5,7 +5,7 @@
   <!-- CENTERED -->
   <div class="container py-4">
     <div class="navbar-brand mx-5 my-5">
-      <img src="{{ logoImgPath }}" />
+      <img src="{{ LOGO_IMG_PATH }}" />
     </div>
     <div class="w-100">
       <input
@@ -18,7 +18,6 @@
   </div>
   <!-- /CENTERED -->
   <!-- FILTER BTN -->
-  <!-- <div class="btn-group" > -->
   <div
     class="btn-group"
     [insideClick]="true"
@@ -42,24 +41,15 @@
       role="menu"
       aria-labelledby="button-animated"
     >
-      <li role="menuitem">
-        <div class="bg-warning d-flex align-items-center justify-content-center" href="#">
-          <input id="test" type="checkbox" checked />
-          <span for="test" class="mx-3"> pubs </span>
+      <li *ngFor="let category of categories" role="menuitem">
+        <div
+          class="d-flex align-items-center ml-2"
+        >
+          <input id="test" type="checkbox" />
+          <span for="test" class="mx-3"> {{ category.name | titlecase}} </span>
         </div>
-      </li>
-      <li role="menuitem">
-        <a class="dropdown-item" href="#">
-          <span class="mx-3"> dummy </span>
-        </a>
-      </li>
-      <li role="menuitem">
-        <a class="dropdown-item" routerLink="/home">
-          <span class="mx-3"> dummy </span>
-        </a>
       </li>
     </ul>
   </div>
-  <!-- </div> -->
   <!-- /FILTER BTN -->
 </nav>

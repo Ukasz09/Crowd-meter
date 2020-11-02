@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerModel } from 'src/app/model/marker';
+import { PlaceCategory } from 'src/app/model/place-category';
 import { MarkersService } from 'src/app/services/markers.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { MarkersService } from 'src/app/services/markers.service';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  private mapStartedLatLng: [number, number] = [51.107883, 17.038538];
-  private tileProvider = {
+  private readonly STARTED_LATLNG: [number, number] = [51.107883, 17.038538];
+  private readonly TILE_PROVIDER = {
     urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -31,25 +32,26 @@ export class MapComponent implements OnInit {
   private initMap() {
     this.markersLayer = L.layerGroup();
     this.map = L.map('map-container', {
-      center: this.mapStartedLatLng,
-      zoom: 15,
+      center: this.STARTED_LATLNG,
+      zoom: 12,
     });
     this.initMapTiles();
-    this.initMarkers();
+    this.fetchMarkers();
   }
-  private initMarkers() {
+
+  private initMapTiles() {
+    let tiles = L.tileLayer(this.TILE_PROVIDER.urlTemplate, {
+      maxZoom: 19,
+      attribution: this.TILE_PROVIDER.attribution,
+    });
+    tiles.addTo(this.map);
+  }
+
+  private fetchMarkers() {
     this.markersService.getMarkers().subscribe((data: MarkerModel[]) => {
       this.displayedMarkers = data;
       this.updateMarkers();
     });
-  }
-
-  private initMapTiles() {
-    let tiles = L.tileLayer(this.tileProvider.urlTemplate, {
-      maxZoom: 19,
-      attribution: this.tileProvider.attribution,
-    });
-    tiles.addTo(this.map);
   }
 
   private updateMarkers() {
