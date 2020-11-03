@@ -1,27 +1,110 @@
 [
   {
+    "id": "food",
     "name": "food",
     "amenities": [
-      "bar",
-      "biergarten",
-      "fast_food",
-      "cafe",
-      "food_court",
-      "ice_cream",
-      "pub",
-      "restaurant"
+      {
+        "id": "bar",
+        "name": "bar"
+      },
+      {
+        "id": "biergarten",
+        "name": "biergarten"
+      },
+      {
+        "id": "fast_food",
+        "name": "fastFood"
+      },
+      {
+        "id": "cafe",
+        "name": "cafe"
+      },
+      {
+        "id": "food_court",
+        "name": "food court"
+      },
+      {
+        "id": "ice_cream",
+        "name": "ice cream"
+      },
+      {
+        "id": "pub",
+        "name": "pub"
+      },
+      {
+        "id": "restaurant",
+        "name": "restaurant"
+      }
     ]
   },
   {
+    "id": "education",
     "name": "education",
-    "amenities": ["college", "kindergarten", "library", "school", "university"]
+    "amenities": [
+      {
+        "id": "college",
+        "name": "college"
+      },
+      {
+        "id": "kindergarten",
+        "name": "kindergarten"
+      },
+      {
+        "id": "library",
+        "name": "library"
+      },
+      {
+        "id": "school",
+        "name": "school"
+      },
+      {
+        "id": "university",
+        "name": "university"
+      }
+    ]
   },
   {
+    "id": "healthcare",
     "name": "healthcare",
-    "amenities": ["dentist", "hospital", "pharmacy", "veterinary"]
+    "amenities": [
+      {
+        "id": "dentist",
+        "name": "dentist"
+      },
+      {
+        "id": "hospital",
+        "name": "hospital"
+      },
+      {
+        "id": "pharmacy",
+        "name": "pharmacy"
+      },
+      {
+        "id": "veterinary",
+        "name": "veterinary"
+      }
+    ]
   },
   {
+    "id": "entertainment",
     "name": "entertainment",
-    "amenities": ["casino", "cinema", "nightclub", "theatre"]
+    "amenities": [
+      {
+        "id": "casino",
+        "name": "casino"
+      },
+      {
+        "id": "cinema",
+        "name": "cinema"
+      },
+      {
+        "id": "nightclub",
+        "name": "night club"
+      },
+      {
+        "id": "theatre",
+        "name": "theatre"
+      }
+    ]
   }
 ]

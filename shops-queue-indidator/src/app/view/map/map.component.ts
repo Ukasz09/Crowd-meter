@@ -1,8 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerModel } from 'src/app/model/marker';
-import { PlaceCategory } from 'src/app/model/place-category';
-import { MarkersService } from 'src/app/services/markers.service';
 
 @Component({
   selector: 'app-map',
@@ -20,23 +18,20 @@ export class MapComponent implements OnInit {
   @Output() markerClick: EventEmitter<any> = new EventEmitter();
 
   map: L.Map;
-  displayedMarkers: MarkerModel[] = [];
-  markersLayer: L.LayerGroup<L.Marker>;
+  markers: Map<string, L.LayerGroup<L.Marker>> = new Map(); //<amenity, layer>
 
-  constructor(private markersService: MarkersService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.initMap();
   }
 
   private initMap() {
-    this.markersLayer = L.layerGroup();
     this.map = L.map('map-container', {
       center: this.STARTED_LATLNG,
       zoom: 12,
     });
     this.initMapTiles();
-    this.fetchMarkers();
   }
 
   private initMapTiles() {
@@ -47,20 +42,25 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
   }
 
-  private fetchMarkers() {
-    this.markersService.getMarkers().subscribe((data: MarkerModel[]) => {
-      this.displayedMarkers = data;
-      this.updateMarkers();
-    });
-  }
+  initMarkers(markers: MarkerModel[]) {
+    let markersMapArr: Map<string, Array<L.Marker>> = new Map();
+    for (let model of markers) {
+      if (markersMapArr.has(model.amenity)) {
+        let markersArr: Array<L.Marker> = markersMapArr.get(model.amenity);
+        markersArr.push(this.getMarker(model));
+      } else {
+        let markersArr: Array<L.Marker> = [];
+        markersArr.push(this.getMarker(model));
+        markersMapArr.set(model.amenity, markersArr);
+      }
+    }
 
-  private updateMarkers() {
-    this.markersLayer.clearLayers();
-    let markers = [];
-    for (let model of this.displayedMarkers)
-      markers.push(this.getMarker(model));
-    this.markersLayer = L.layerGroup(markers);
-    this.markersLayer.addTo(this.map);
+    for (let markersEntry of markersMapArr.entries()) {
+      let amenity: string = markersEntry[0];
+      let markersLayer = L.layerGroup(markersEntry[1]);
+      this.markers.set(amenity, markersLayer);
+      markersLayer.addTo(this.map);
+    }
   }
 
   private getMarker(model: MarkerModel) {

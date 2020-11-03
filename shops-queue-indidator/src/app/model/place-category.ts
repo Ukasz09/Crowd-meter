@@ -1,3 +1,11 @@
+export class AmenityType {
+  constructor(public id: string, public name: string) {}
+}
+
 export class PlaceCategory {
-  constructor(public name: string, public amenities: string[]) {}
+  constructor(
+    public id: string,
+    public name: string,
+    public amenities: AmenityType[]
+  ) {}
 }

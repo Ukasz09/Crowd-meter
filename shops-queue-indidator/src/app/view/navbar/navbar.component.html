@@ -8,12 +8,10 @@
       <img src="{{ LOGO_IMG_PATH }}" />
     </div>
     <div class="w-100">
-      <input
-        class="form-control w-100"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
+      <input [(ngModel)]="search"
+             [typeahead]="searchSuggestions"
+             typeaheadOptionField="suggestion"
+             class="form-control">
     </div>
   </div>
   <!-- /CENTERED -->
@@ -53,3 +51,7 @@
   </div>
   <!-- /FILTER BTN -->
 </nav>
+
+<!-- <ng-template #customItemTemplate let-model="item" let-index="index">
+  <h5>{{model | json}}</h5>
+</ng-template> -->

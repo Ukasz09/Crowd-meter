@@ -10,6 +10,7 @@ import { HomeComponent } from './view/home/home.component';
 import { NavbarComponent } from './view/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, MapComponent, HomeComponent, NavbarComponent],
   imports: [
@@ -17,9 +18,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ModalModule.forRoot(),
     TypeaheadModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
