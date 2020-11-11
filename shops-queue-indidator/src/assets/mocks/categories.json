@@ -5,35 +5,43 @@
     "amenities": [
       {
         "id": "bar",
-        "name": "bar"
+        "name": "bar",
+        "checked": true
       },
       {
         "id": "biergarten",
-        "name": "biergarten"
+        "name": "biergarten",
+        "checked": true
       },
       {
         "id": "fast_food",
-        "name": "fastFood"
+        "name": "fastFood",
+        "checked": true
       },
       {
         "id": "cafe",
-        "name": "cafe"
+        "name": "cafe",
+        "checked": true
       },
       {
         "id": "food_court",
-        "name": "food court"
+        "name": "food court",
+        "checked": true
       },
       {
         "id": "ice_cream",
-        "name": "ice cream"
+        "name": "ice cream",
+        "checked": true
       },
       {
         "id": "pub",
-        "name": "pub"
+        "name": "pub",
+        "checked": true
       },
       {
         "id": "restaurant",
-        "name": "restaurant"
+        "name": "restaurant",
+        "checked": false
       }
     ]
   },
@@ -43,23 +51,28 @@
     "amenities": [
       {
         "id": "college",
-        "name": "college"
+        "name": "college",
+        "checked": true
       },
       {
         "id": "kindergarten",
-        "name": "kindergarten"
+        "name": "kindergarten",
+        "checked": false
       },
       {
         "id": "library",
-        "name": "library"
+        "name": "library",
+        "checked": true
       },
       {
         "id": "school",
-        "name": "school"
+        "name": "school",
+        "checked": true
       },
       {
         "id": "university",
-        "name": "university"
+        "name": "university",
+        "checked": true
       }
     ]
   },
@@ -69,19 +82,23 @@
     "amenities": [
       {
         "id": "dentist",
-        "name": "dentist"
+        "name": "dentist",
+        "checked": true
       },
       {
         "id": "hospital",
-        "name": "hospital"
+        "name": "hospital",
+        "checked": true
       },
       {
         "id": "pharmacy",
-        "name": "pharmacy"
+        "name": "pharmacy",
+        "checked": true
       },
       {
         "id": "veterinary",
-        "name": "veterinary"
+        "name": "veterinary",
+        "checked": true
       }
     ]
   },
@@ -91,19 +108,23 @@
     "amenities": [
       {
         "id": "casino",
-        "name": "casino"
+        "name": "casino",
+        "checked": false
       },
       {
         "id": "cinema",
-        "name": "cinema"
+        "name": "cinema",
+        "checked": false
       },
       {
         "id": "nightclub",
-        "name": "night club"
+        "name": "night club",
+        "checked": false
       },
       {
         "id": "theatre",
-        "name": "theatre"
+        "name": "theatre",
+        "checked": false
       }
     ]
   }

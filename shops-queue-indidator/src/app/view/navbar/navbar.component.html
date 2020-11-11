@@ -5,7 +5,7 @@
   <!-- CENTERED -->
   <div class="container py-4">
     <div class="navbar-brand mx-5 my-5">
-      <img (click)="onLogoClick()" src="{{ LOGO_IMG_PATH }}" class="btn"/>
+      <img (click)="onLogoClick()" src="{{ LOGO_IMG_PATH }}" class="btn" />
     </div>
     <div class="w-100">
       <input
@@ -42,12 +42,36 @@
       *dropdownMenu
       class="dropdown-menu dropdown-menu-right"
       role="menu"
+      style="max-height: 50vh; overflow-y: auto; overflow-x: hidden;"
       aria-labelledby="button-animated"
     >
       <li *ngFor="let category of categories" role="menuitem">
-        <div class="d-flex align-items-center ml-2">
-          <input id="test" type="checkbox" />
-          <span for="test" class="mx-3"> {{ category.name | titlecase }} </span>
+        <div class="custom-control custom-checkbox mx-3 w-100">
+          <input
+            [id]="category.id"
+            type="checkbox"
+            [checked]="groupIsChecked(category)"
+            (change)="categoryCheckedChange(category)"
+            class="custom-control-input"
+          />
+          <label [for]="category.id" class="custom-control-label">
+            {{ category.name | titlecase }}
+          </label>
+
+          <!-- AMENITIES -->
+          <div *ngFor="let amenity of category.amenities" class="custom-control custom-checkbox ml-2">
+            <input
+            [id]="amenity.id"
+            type="checkbox"
+            class="custom-control-input"
+            [checked]="amenity.checked"
+            (change)="amenityCheckedChange(amenity)"
+            />
+            <label [for]="amenity.id" class="custom-control-label">
+              {{ amenity.name | titlecase }}
+            </label>
+          </div>
+          <!-- AMENITIES -->
         </div>
       </li>
     </ul>
@@ -80,10 +104,10 @@
       (click)="typeaheadTemplateMethods.selectMatch(match, $event)"
       (mouseenter)="typeaheadTemplateMethods.selectActive(match)"
     >
-      <h5 class="font-weight-bold btn">
+      <h5 class="font-weight-bold btn py-0 my-0" style="font-size: 1.1em">
         {{ match.item.model.name }}
       </h5>
-      <h5 class="text-secondary btn">
+      <h5 class="text-secondary py-0 my-0 btn">
         {{ match.item.model.city }}, {{ match.item.model.street }},
         {{ match.item.model.housenumber }}
       </h5>

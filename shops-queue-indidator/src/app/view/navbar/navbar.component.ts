@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MarkerModel } from 'src/app/model/marker';
-import { PlaceCategory } from 'src/app/model/place-category';
+import { AmenityType, PlaceCategory } from 'src/app/model/place-category';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { isBs3 } from 'ngx-bootstrap/utils';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
   @Output() logoClick = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;
+  // categoriesForm: FormGroup;
 
   constructor() {}
 
@@ -37,5 +39,22 @@ export class NavbarComponent implements OnInit {
 
   onLogoClick() {
     this.logoClick.emit();
+  }
+
+  groupIsChecked(category: PlaceCategory): boolean {
+    for (let amenity of category.amenities) {
+      if (amenity.checked == false) return false;
+    }
+    return true;
+  }
+
+  amenityCheckedChange(amenity: AmenityType) {
+    amenity.checked = !amenity.checked;
+  }
+
+  categoryCheckedChange(category: PlaceCategory) {
+    let beforeValue = this.groupIsChecked(category);
+    let newValue = !beforeValue;
+    for (let amenity of category.amenities) amenity.checked = newValue;
   }
 }
