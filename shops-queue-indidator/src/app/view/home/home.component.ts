@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       markerModel.longitude,
       MapComponent.focusOnMarkerZoom
     );
-    const modalConfig: ModalOptions = { class: 'modal-lg' };
+    const modalConfig: ModalOptions = { class: 'modal-md' };
     this.openModal(template, modalConfig);
   }
 

@@ -1,57 +1,97 @@
-<div class="container-fluid bg-light test">
-  <div class="row">
-    <div class="col bg-info text-center">
+<div class="container-fluid bg-light details-modal" style="font-size: 1.2em">
+  <div class="d-flex flex-column">
+    <div class="text-center py-4">
       <h2 class="font-weight-bold">{{ marker.name }}</h2>
     </div>
   </div>
-  <div class="row">
-    <!-- AMENITY INFO PANEL -->
-    <div class="col-lg-5">
-      <div class="d-flex flex-column">
-        <!-- LOCALIZATION -->
-        <div
-          class="d-flex flex-row bg-success align-items-center"
-          style="font-size: 1.2em"
+  <!-- LOCALIZATION -->
+  <div class="d-flex flex-row align-items-center">
+    <span class="material-icons mx-2"> location_on </span>
+    <span class="py-2 mx-3 flex-fill">
+      {{ marker.city }}, ul.{{ marker.street }}
+      {{ marker.housenumber }}
+    </span>
+  </div>
+  <!-- /LOCALIZATION -->
+  <!-- OPEN TIME -->
+  <div class="d-flex flex-row py-2">
+    <span class="material-icons mx-2 d-flex align-items-center">
+      access_time
+    </span>
+    <div class="d-flex flex-column flex-fill">
+      <div class="btn-group" dropdown>
+        <button
+          id="open-hours-btn"
+          dropdownToggle
+          type="button"
+          class="btn btn-light dropdown-toggle text-left"
+          aria-controls="open-hours-btn"
         >
-          <span class="material-icons mx-2 bg-danger"> location_on </span>
-          <span class="text-center w-100 bg-info">
-            {{ marker.city }}, ul.{{ marker.street }}
-            {{ marker.housenumber }}
-          </span>
-          <!-- /LOCALIZATION -->
+          Open hours <span class="caret"></span>
+        </button>
+        <ul
+          id="open-hours-btn"
+          *dropdownMenu
+          class="dropdown-menu"
+          role="menu"
+          aria-labelledby="open-hours-btn"
+        >
+          <li role="menuitem">
+            <a class="dropdown-item" href="#">{{ marker.opening_hours }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /OPEN TIME -->
+  <!-- WEBSITE-->
+  <div class="d-flex flex-row">
+    <span class="material-icons mx-2 d-flex align-items-center">
+      contact_page
+    </span>
+    <span class="py-2 mx-3 flex-fill"
+      ><a [href]="marker.website">Website</a>
+    </span>
+  </div>
+  <!-- /WEBSITE-->
+  <!-- STATUS INFO PANEL -->
+  <div class="py-4">
+    <div class="text-center font-weight-bold py-2">OVERCROWDING LEVEL:</div>
+    <app-custom-progressbar
+      [actualValue]="marker.numberOfPeoples"
+      [maxValue]="marker.numberOfFreeSpace"
+    ></app-custom-progressbar>
+    <div class="d-flex flex-row pt-5 pb-3">
+      <div class="d-flex flex-column w-50">
+        <div>
+          <span class="font-weight-bold">Free spaces:</span
+          ><span> {{ numberOfActualFreeSpaces }}</span>
         </div>
-        <!-- OPEN TIME -->
-        <div class="d-flex flex-row bg-primary">
-          <span class="material-icons mx-2 bg-danger d-flex align-items-center">
-            access_time
+        <div>
+          <span class="font-weight-bold"> Total spaces: </span>
+          <span>
+            {{ marker.numberOfFreeSpace }}
           </span>
-
-          <div class="d-flex flex-column w-100">
-            <span class="text-center bg-light">Godziny otwarcia:</span>
-            <div class="bg-warning text-center py-1">
-              {{ marker.opening_hours }}
-            </div>
-          </div>
         </div>
       </div>
-      <!-- /OPEN TIME -->
-      <!-- WEBSITE-->
-      <div class="d-flex flex-row bg-success">
-        <span class="material-icons mx-2 bg-danger d-flex align-items-center">
-          contact_page
-        </span>
-        <span class="text-center py-1 w-100"><a [href]="marker.website">website_page</a></span>
+      <div
+        class="flex-fill justify-content-center d-flex align-items-center {{
+          actualCrowdColorClass
+        }}"
+      >
+        <i class="material-icons md-50"> {{ actualCrowdLevelEmoji }} </i>
+        <span class="mx-3 font-weight-bold">{{
+          actualCrowdLevelText | uppercase
+        }}</span>
       </div>
-      <!-- /WEBSITE-->
     </div>
-    <!-- /AMENITY INFO PANEL -->
-    <!-- STATUS INFO PANEL -->
-    <div class="col-lg-7 bg-warning">
-      <app-custom-progressbar
-        [actualValue]="marker.numberOfPeoples"
-        [maxValue]="marker.numberOfFreeSpace"
-      ></app-custom-progressbar>
-    </div>
-    <!-- /STATUS INFO PANEL -->
+  </div>
+  <!-- /STATUS INFO PANEL -->
+  <div
+    class="text-center font-weight-bold text-secondary pt-3"
+    style="font-size: 0.8em"
+  >
+    Last refresh:
+    {{ lastRefreshDateText }}
   </div>
 </div>
