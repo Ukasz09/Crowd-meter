@@ -11,8 +11,18 @@ import { NavbarComponent } from './view/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
+import { MarkerDetailsComponent } from './view/marker-details/marker-details.component';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { CustomProgressbarComponent } from './view/marker-details/custom-progressbar/custom-progressbar.component';
 @NgModule({
-  declarations: [AppComponent, MapComponent, HomeComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    MapComponent,
+    HomeComponent,
+    NavbarComponent,
+    MarkerDetailsComponent,
+    CustomProgressbarComponent,
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -22,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     ModalModule.forRoot(),
     TypeaheadModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ProgressbarModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

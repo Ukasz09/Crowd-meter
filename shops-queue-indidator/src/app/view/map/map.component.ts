@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
-import { MarkerModel } from 'src/app/model/marker';
+import { MarkerDetailedModel } from 'src/app/model/marker';
 
 @Component({
   selector: 'app-map',
@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
   }
 
-  initMarkers(markers: MarkerModel[]) {
+  initMarkers(markers: MarkerDetailedModel[]) {
     let markersMapArr: Map<string, Array<L.Marker>> = new Map();
     for (let model of markers) {
       if (markersMapArr.has(model.amenity)) {
@@ -65,7 +65,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  private getMarker(model: MarkerModel) {
+  private getMarker(model: MarkerDetailedModel) {
     let marker = L.marker([model.latitude, model.longitude]);
     marker.on('click', (_) => this.markerClick.emit(model));
     return marker;

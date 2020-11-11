@@ -1,0 +1,57 @@
+<div class="container-fluid bg-light test">
+  <div class="row">
+    <div class="col bg-info text-center">
+      <h2 class="font-weight-bold">{{ marker.name }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <!-- AMENITY INFO PANEL -->
+    <div class="col-lg-5">
+      <div class="d-flex flex-column">
+        <!-- LOCALIZATION -->
+        <div
+          class="d-flex flex-row bg-success align-items-center"
+          style="font-size: 1.2em"
+        >
+          <span class="material-icons mx-2 bg-danger"> location_on </span>
+          <span class="text-center w-100 bg-info">
+            {{ marker.city }}, ul.{{ marker.street }}
+            {{ marker.housenumber }}
+          </span>
+          <!-- /LOCALIZATION -->
+        </div>
+        <!-- OPEN TIME -->
+        <div class="d-flex flex-row bg-primary">
+          <span class="material-icons mx-2 bg-danger d-flex align-items-center">
+            access_time
+          </span>
+
+          <div class="d-flex flex-column w-100">
+            <span class="text-center bg-light">Godziny otwarcia:</span>
+            <div class="bg-warning text-center py-1">
+              {{ marker.opening_hours }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /OPEN TIME -->
+      <!-- WEBSITE-->
+      <div class="d-flex flex-row bg-success">
+        <span class="material-icons mx-2 bg-danger d-flex align-items-center">
+          contact_page
+        </span>
+        <span class="text-center py-1 w-100"><a [href]="marker.website">website_page</a></span>
+      </div>
+      <!-- /WEBSITE-->
+    </div>
+    <!-- /AMENITY INFO PANEL -->
+    <!-- STATUS INFO PANEL -->
+    <div class="col-lg-7 bg-warning">
+      <app-custom-progressbar
+        [actualValue]="marker.numberOfPeoples"
+        [maxValue]="marker.numberOfFreeSpace"
+      ></app-custom-progressbar>
+    </div>
+    <!-- /STATUS INFO PANEL -->
+  </div>
+</div>

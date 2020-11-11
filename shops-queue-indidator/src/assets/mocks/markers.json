@@ -7,7 +7,11 @@
     "street": "Kotlarska",
     "housenumber": "25",
     "amenity": "cafe",
-    "name": "Sorrir"
+    "name": "Sorrir",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 50,
+    "numberOfPeoples": 12
   },
   {
     "id": 6298297217,
@@ -17,7 +21,11 @@
     "street": "Plac Grunwaldzki",
     "housenumber": "22",
     "amenity": "cafe",
-    "name": "Etno Caf\u00e8"
+    "name": "Etno Caf\u00e8",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 25,
+    "numberOfPeoples": 1
   },
   {
     "id": 6301946286,
@@ -27,7 +35,11 @@
     "street": "Graniczna",
     "housenumber": "4a",
     "amenity": "cafe",
-    "name": "Etno Caf\u00e8"
+    "name": "Etno Caf\u00e8",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 100,
+    "numberOfPeoples": 100
   },
   {
     "id": 6311785150,
@@ -37,7 +49,11 @@
     "street": "Tramwajowa",
     "housenumber": "2",
     "amenity": "cafe",
-    "name": "Wuwa Caf\u00e9"
+    "name": "Wuwa Caf\u00e9",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 75,
+    "numberOfPeoples": 3
   },
   {
     "id": 6311815713,
@@ -47,7 +63,11 @@
     "street": "Stanis\u0142awa Dubois",
     "housenumber": "6/2",
     "amenity": "cafe",
-    "name": "\u0141askotki"
+    "name": "\u0141askotki",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 30,
+    "numberOfPeoples": 15
   },
   {
     "id": 6367758663,
@@ -57,7 +77,11 @@
     "street": "Podwale",
     "housenumber": "6",
     "amenity": "cafe",
-    "name": "Bolter Cafe"
+    "name": "Bolter Cafe",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 40,
+    "numberOfPeoples": 35
   },
   {
     "id": 6375910123,
@@ -67,7 +91,11 @@
     "street": "Zygmunta Wr\u00f3blewskiego",
     "housenumber": "7",
     "amenity": "cafe",
-    "name": "Petits Fours Caf\u00e9"
+    "name": "Petits Fours Caf\u00e9",
+    "opening_hours": "sb-nd: 7:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 10,
+    "numberOfPeoples": 15
   },
   {
     "id": 6402930598,
@@ -77,7 +105,11 @@
     "street": "Kie\u0142ba\u015bnicza",
     "housenumber": "2",
     "amenity": "cafe",
-    "name": "Czarna Magia"
+    "name": "Czarna Magia",
+    "opening_hours": "sb-nd: 1:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 50,
+    "numberOfPeoples": 1
   },
   {
     "id": 6634188040,
@@ -87,7 +119,11 @@
     "street": "Przej\u015bcie Garncarskie 2",
     "housenumber": "2",
     "amenity": "cafe",
-    "name": "Tajne Komplety"
+    "name": "Tajne Komplety",
+    "opening_hours": "sb-nd: 6:00-12:00, pon-pt: 7:00-18:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 20,
+    "numberOfPeoples": 12
   },
   {
     "id": 6757884544,
@@ -97,6 +133,10 @@
     "housenumber": "6",
     "street": "Rynek",
     "amenity": "cafe",
-    "name": "Popi\u00f3\u0142 i Diament"
+    "name": "Popi\u00f3\u0142 i Diament",
+    "opening_hours": "sb-nd: 9:00-12:00, pon-pt: 7:00-12:00",
+    "website": "somewebsite.com",
+    "numberOfFreeSpace": 60,
+    "numberOfPeoples": 0
   }
 ]

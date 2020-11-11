@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MarkerModel } from 'src/app/model/marker';
+import { MarkerDetailedModel } from 'src/app/model/marker';
 import { AmenityType, PlaceCategory } from 'src/app/model/place-category';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   readonly LOGO_IMG_PATH = 'assets/images/logo-orange.png';
   @Input() categories: PlaceCategory[];
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
-  @Output() searchSuggestionChosen = new EventEmitter<MarkerModel>();
+  @Output() searchSuggestionChosen = new EventEmitter<MarkerDetailedModel>();
   @Output() logoClick = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;

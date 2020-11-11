@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { MarkerModel } from 'src/app/model/marker';
+import { MarkerDetailedModel } from 'src/app/model/marker';
 import { PlaceCategory } from 'src/app/model/place-category';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { CategoryService } from 'src/app/services/category.service';
@@ -15,7 +15,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 })
 export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
-  chosenMarker: MarkerModel;
+  chosenMarker: MarkerDetailedModel;
 
   categories: PlaceCategory[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.modalService.show(template, config);
   }
 
-  markerClickAction(markerModel: MarkerModel, template: TemplateRef<any>) {
+  markerClickAction(markerModel: MarkerDetailedModel, template: TemplateRef<any>) {
     this.chosenMarker = markerModel;
     this.mapComponent.setMapView(
       markerModel.latitude,
@@ -55,13 +55,13 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchMarkers() {
-    this.markersService.getMarkers().subscribe((markers: MarkerModel[]) => {
+    this.markersService.getMarkers().subscribe((markers: MarkerDetailedModel[]) => {
       this.mapComponent.initMarkers(markers);
       this.initSearchSuggestions(markers);
     });
   }
 
-  private initSearchSuggestions(markers: MarkerModel[]) {
+  private initSearchSuggestions(markers: MarkerDetailedModel[]) {
     let suggestions: SearchSuggestionModel[] = [];
     for (let m of markers) {
       let suggestionValue = this.getSuggestionValueFromModel(m);
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
     this.searchSuggestions = suggestions;
   }
 
-  private getSuggestionValueFromModel(marker: MarkerModel): string {
+  private getSuggestionValueFromModel(marker: MarkerDetailedModel): string {
     let delim = ',';
     return (
       marker.name +
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSearchSuggestionChosen(
-    model: MarkerModel,
+    model: MarkerDetailedModel,
     detailModalTemplate: TemplateRef<any>
   ) {
     this.markerClickAction(model, detailModalTemplate);

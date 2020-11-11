@@ -1,5 +1,5 @@
-import { MarkerModel } from './marker';
+import { MarkerDetailedModel } from './marker';
 
 export class SearchSuggestionModel {
-  constructor(public model: MarkerModel, public suggestion: string) {}
+  constructor(public model: MarkerDetailedModel, public suggestion: string) {}
 }

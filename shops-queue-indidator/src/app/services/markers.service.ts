@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MarkerModel } from '../model/marker';
+import { MarkerDetailedModel } from '../model/marker';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ import { MarkerModel } from '../model/marker';
 export class MarkersService {
   constructor(private http: HttpClient) {}
 
-  getMarkers(): Observable<MarkerModel[]> {
-    return this.http.get<MarkerModel[]>('assets/mocks/markers.json');
+  getMarkers(): Observable<MarkerDetailedModel[]> {
+    return this.http.get<MarkerDetailedModel[]>('assets/mocks/markers.json');
   }
 }
