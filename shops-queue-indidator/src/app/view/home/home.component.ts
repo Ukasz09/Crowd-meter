@@ -1,11 +1,12 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { MarkerModel } from 'src/app/model/marker';
 import { PlaceCategory } from 'src/app/model/place-category';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { CategoryService } from 'src/app/services/category.service';
 import { MarkersService } from 'src/app/services/markers.service';
 import { MapComponent } from '../map/map.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -32,13 +33,14 @@ export class HomeComponent implements OnInit {
     this.fetchMarkers();
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(template: TemplateRef<any>, config: ModalOptions) {
+    this.modalRef = this.modalService.show(template, config);
   }
 
   markerClickAction(markerModel: MarkerModel, template: TemplateRef<any>) {
     this.chosenMarker = markerModel;
-    this.openModal(template);
+    const modalConfig: ModalOptions = { class: 'modal-lg' };
+    this.openModal(template, modalConfig);
   }
 
   private fetchCategories() {
@@ -84,5 +86,14 @@ export class HomeComponent implements OnInit {
     detailModalTemplate: TemplateRef<any>
   ) {
     this.markerClickAction(model, detailModalTemplate);
+    this.mapComponent.setMapView(
+      model.latitude,
+      model.longitude,
+      MapComponent.focusOnMarkerZoom
+    );
+  }
+
+  get mapHeightStyle(): string {
+    return 'calc(100vh - ' + NavbarComponent.NAVBAR_HEIGHT_PX + 'px';
   }
 }

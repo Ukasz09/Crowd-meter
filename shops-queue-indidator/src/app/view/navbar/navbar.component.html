@@ -1,6 +1,6 @@
 <nav
-  class="navbar navbar-expand-lg sticky-top bg-light border border-info py-1"
-  style="height: 75px"
+  class="navbar navbar-expand-lg sticky-top border border-secondary py-1 navbar-custom"
+  [ngStyle]="{'height.px':navbarHeightPx}"
 >
   <!-- CENTERED -->
   <div class="container py-4">
@@ -11,9 +11,9 @@
       <input
         [(ngModel)]="search"
         [typeahead]="searchSuggestions"
-        [typeaheadItemTemplate]="searchItemTemplate"
+        [optionsListTemplate]="customListTemplate"
         typeaheadOptionField="suggestion"
-        class="form-control"
+        class="form-control bg-light input-custom"
         (typeaheadOnSelect)="onSearchSelect($event)"
       />
     </div>
@@ -30,7 +30,7 @@
       id="button-animated"
       dropdownToggle
       type="button"
-      class="btn btn-outline-dark btn-group"
+      class="btn btn-warning btn-group"
       aria-controls="dropdown-animated"
     >
       <i class="material-icons">filter_alt</i>
@@ -56,11 +56,30 @@
 
 <!-- TEMPLATES -->
 <ng-template #searchItemTemplate let-suggestion="item" let-index="index">
-  <h5>
+  <h5 class="font-weight-bold">
     {{ suggestion.model.name }}
   </h5>
   <h5 class="text-secondary">
     {{ suggestion.model.city }}, {{ suggestion.model.street }},
     {{ suggestion.model.housenumber }}
   </h5>
+</ng-template>
+
+<ng-template #customListTemplate let-matches="matches" let-query="query" let-typeaheadTemplateMethods>
+  <ul class="custom-list-group" [class.dropdown-menu]="isBs3">
+    <li class="custom-list-group-item"
+        *ngFor="let match of matches"
+        [class.active]="typeaheadTemplateMethods.isActive(match)"
+        (click)="typeaheadTemplateMethods.selectMatch(match, $event)"
+        (mouseenter)="typeaheadTemplateMethods.selectActive(match)">
+     
+        <h5 class="font-weight-bold">
+          {{ match.item.model.name }}
+        </h5>
+        <h5 class="text-secondary">
+          {{ match.item.model.city }}, {{ match.item.model.street }},
+          {{ match.item.model.housenumber }}
+        </h5>
+    </li>
+  </ul>
 </ng-template>

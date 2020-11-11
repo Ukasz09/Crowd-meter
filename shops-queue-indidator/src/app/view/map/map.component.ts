@@ -14,6 +14,8 @@ export class MapComponent implements OnInit {
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   };
+  static readonly defaultZoom = 12;
+  static readonly focusOnMarkerZoom = 21;
 
   @Output() markerClick: EventEmitter<any> = new EventEmitter();
 
@@ -29,7 +31,7 @@ export class MapComponent implements OnInit {
   private initMap() {
     this.map = L.map('map-container', {
       center: this.STARTED_LATLNG,
-      zoom: 12,
+      zoom: MapComponent.defaultZoom,
     });
     this.initMapTiles();
   }
@@ -67,5 +69,13 @@ export class MapComponent implements OnInit {
     let marker = L.marker([model.latitude, model.longitude]);
     marker.on('click', (_) => this.markerClick.emit(model));
     return marker;
+  }
+
+  setMapView(
+    latitude: number,
+    longitude: number,
+    zoom: number
+  ) {
+    this.map.setView(new L.LatLng(latitude, longitude), zoom);
   }
 }

@@ -1,0 +1,7 @@
+$primary-color: #f6a206;
+$primary-accent-light: lighten($primary-color, 45);
+
+@mixin primary-focus-shadow {
+    border-color: $primary-color;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px $primary-color;
+  }

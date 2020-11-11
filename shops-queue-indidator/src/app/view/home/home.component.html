@@ -3,7 +3,7 @@
   [searchSuggestions]="searchSuggestions"
   (searchSuggestionChosen)="onSearchSuggestionChosen($event, markerDetails)"
 ></app-navbar>
-<div class="container-fluid" style="height: 100vh">
+<div class="container-fluid custom-map-container" [ngStyle]="{'height':mapHeightStyle}">
   <app-map (markerClick)="markerClickAction($event, markerDetails)"></app-map>
 </div>
 
