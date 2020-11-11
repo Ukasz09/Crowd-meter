@@ -78,4 +78,11 @@ export class HomeComponent implements OnInit {
       marker.amenity
     );
   }
+
+  onSearchSuggestionChosen(
+    model: MarkerModel,
+    detailModalTemplate: TemplateRef<any>
+  ) {
+    this.markerClickAction(model, detailModalTemplate);
+  }
 }

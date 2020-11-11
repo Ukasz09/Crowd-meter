@@ -8,10 +8,14 @@
       <img src="{{ LOGO_IMG_PATH }}" />
     </div>
     <div class="w-100">
-      <input [(ngModel)]="search"
-             [typeahead]="searchSuggestions"
-             typeaheadOptionField="suggestion"
-             class="form-control">
+      <input
+        [(ngModel)]="search"
+        [typeahead]="searchSuggestions"
+        [typeaheadItemTemplate]="searchItemTemplate"
+        typeaheadOptionField="suggestion"
+        class="form-control"
+        (typeaheadOnSelect)="onSearchSelect($event)"
+      />
     </div>
   </div>
   <!-- /CENTERED -->
@@ -40,11 +44,9 @@
       aria-labelledby="button-animated"
     >
       <li *ngFor="let category of categories" role="menuitem">
-        <div
-          class="d-flex align-items-center ml-2"
-        >
+        <div class="d-flex align-items-center ml-2">
           <input id="test" type="checkbox" />
-          <span for="test" class="mx-3"> {{ category.name | titlecase}} </span>
+          <span for="test" class="mx-3"> {{ category.name | titlecase }} </span>
         </div>
       </li>
     </ul>
@@ -52,6 +54,13 @@
   <!-- /FILTER BTN -->
 </nav>
 
-<!-- <ng-template #customItemTemplate let-model="item" let-index="index">
-  <h5>{{model | json}}</h5>
-</ng-template> -->
+<!-- TEMPLATES -->
+<ng-template #searchItemTemplate let-suggestion="item" let-index="index">
+  <h5>
+    {{ suggestion.model.name }}
+  </h5>
+  <h5 class="text-secondary">
+    {{ suggestion.model.city }}, {{ suggestion.model.street }},
+    {{ suggestion.model.housenumber }}
+  </h5>
+</ng-template>

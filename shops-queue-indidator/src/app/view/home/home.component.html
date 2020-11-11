@@ -1,9 +1,13 @@
-<app-navbar [categories]="categories" [searchSuggestions]="searchSuggestions"></app-navbar>
+<app-navbar
+  [categories]="categories"
+  [searchSuggestions]="searchSuggestions"
+  (searchSuggestionChosen)="onSearchSuggestionChosen($event, markerDetails)"
+></app-navbar>
 <div class="container-fluid" style="height: 100vh">
   <app-map (markerClick)="markerClickAction($event, markerDetails)"></app-map>
 </div>
 
 <!-- TEMPLATES -->
 <ng-template #markerDetails>
-  {{ chosenMarker }}
+  {{ chosenMarker | json }}
 </ng-template>
