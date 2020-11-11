@@ -39,6 +39,11 @@ export class HomeComponent implements OnInit {
 
   markerClickAction(markerModel: MarkerModel, template: TemplateRef<any>) {
     this.chosenMarker = markerModel;
+    this.mapComponent.setMapView(
+      markerModel.latitude,
+      markerModel.longitude,
+      MapComponent.focusOnMarkerZoom
+    );
     const modalConfig: ModalOptions = { class: 'modal-lg' };
     this.openModal(template, modalConfig);
   }
@@ -86,14 +91,15 @@ export class HomeComponent implements OnInit {
     detailModalTemplate: TemplateRef<any>
   ) {
     this.markerClickAction(model, detailModalTemplate);
-    this.mapComponent.setMapView(
-      model.latitude,
-      model.longitude,
-      MapComponent.focusOnMarkerZoom
-    );
   }
 
   get mapHeightStyle(): string {
     return 'calc(100vh - ' + NavbarComponent.NAVBAR_HEIGHT_PX + 'px';
+  }
+
+  onLogoClick() {
+    let latLng: [number, number] = MapComponent.STARTED_LATLNG;
+    let zoom = MapComponent.defaultZoom;
+    this.mapComponent.setMapView(latLng[0], latLng[1], zoom);
   }
 }

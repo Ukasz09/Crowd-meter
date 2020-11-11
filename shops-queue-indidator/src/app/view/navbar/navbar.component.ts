@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   @Input() categories: PlaceCategory[];
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
   @Output() searchSuggestionChosen = new EventEmitter<MarkerModel>();
+  @Output() logoClick = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;
 
@@ -32,5 +33,9 @@ export class NavbarComponent implements OnInit {
 
   get navbarHeightPx(): number {
     return NavbarComponent.NAVBAR_HEIGHT_PX;
+  }
+
+  onLogoClick() {
+    this.logoClick.emit();
   }
 }

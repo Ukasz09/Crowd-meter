@@ -8,12 +8,12 @@ import { MarkerModel } from 'src/app/model/marker';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  private readonly STARTED_LATLNG: [number, number] = [51.107883, 17.038538];
   private readonly TILE_PROVIDER = {
     urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   };
+  static readonly STARTED_LATLNG: [number, number] = [51.107883, 17.038538];
   static readonly defaultZoom = 12;
   static readonly focusOnMarkerZoom = 21;
 
@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
 
   private initMap() {
     this.map = L.map('map-container', {
-      center: this.STARTED_LATLNG,
+      center: MapComponent.STARTED_LATLNG,
       zoom: MapComponent.defaultZoom,
     });
     this.initMapTiles();
@@ -71,11 +71,7 @@ export class MapComponent implements OnInit {
     return marker;
   }
 
-  setMapView(
-    latitude: number,
-    longitude: number,
-    zoom: number
-  ) {
+  setMapView(latitude: number, longitude: number, zoom: number) {
     this.map.setView(new L.LatLng(latitude, longitude), zoom);
   }
 }
