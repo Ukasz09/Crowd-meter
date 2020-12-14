@@ -72,4 +72,8 @@ export class MarkerDetailsComponent implements OnInit {
       this.lastRefreshDate.getSeconds()
     );
   }
+
+  get openHoursEntries(): [string, string][]{
+    return Object.entries(this.marker.openingHours);
+  }
 }

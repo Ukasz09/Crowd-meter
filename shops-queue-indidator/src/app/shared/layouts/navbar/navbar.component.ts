@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
   @Output() logoClick = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;
-  // categoriesForm: FormGroup;
 
   constructor() {}
 

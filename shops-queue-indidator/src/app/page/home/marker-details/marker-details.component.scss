@@ -1,6 +1,18 @@
+@use '/src/app/shared/styles/styles-variables.scss' as shared-var;
+
 .details-modal {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: 1.2em;
 }
-.material-icons.md-50 { font-size: 50px; }
+.material-icons.md-50 {
+  font-size: 50px;
+}
+
+.badge-weekday {
+  background-color: lighten(shared-var.$primary-color,20%);
+}
+
+.bg-accent-light{
+  background-color: shared-var.$primary-accent-light;
+}

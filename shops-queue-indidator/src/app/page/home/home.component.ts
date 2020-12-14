@@ -51,7 +51,9 @@ export class HomeComponent implements OnInit {
   private fetchCategories() {
     this.categoriesService
       .getCategories()
-      .subscribe((data: PlaceCategorySchema[]) => (this.placeCategories = data));
+      .subscribe(
+        (data: PlaceCategorySchema[]) => (this.placeCategories = data)
+      );
   }
 
   private fetchMarkers() {
@@ -80,9 +82,7 @@ export class HomeComponent implements OnInit {
       delim +
       marker.street +
       delim +
-      marker.housenumber +
-      delim +
-      marker.amenity
+      marker.houseNumber
     );
   }
 
