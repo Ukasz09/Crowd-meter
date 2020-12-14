@@ -24,6 +24,7 @@ export class MapComponent implements OnInit {
 
   map: L.Map;
   markers: Map<string, L.LayerGroup<L.Marker>> = new Map(); //<amenity, layer>
+  tileLayer: L.TileLayer;
 
   constructor() {}
 
@@ -40,11 +41,11 @@ export class MapComponent implements OnInit {
   }
 
   private initMapTiles() {
-    let tiles = L.tileLayer(this.TILE_PROVIDER.urlTemplate, {
+    this.tileLayer = L.tileLayer(this.TILE_PROVIDER.urlTemplate, {
       maxZoom: 19,
       attribution: this.TILE_PROVIDER.attribution,
     });
-    tiles.addTo(this.map);
+    this.tileLayer.addTo(this.map);
   }
 
   initMarkers(markers: MarkerSchema[]) {
@@ -67,8 +68,17 @@ export class MapComponent implements OnInit {
   }
 
   showOnlyVisibleMarkersOnMap() {
-    this.map.eachLayer((l) => l.remove());
-    this.initMapTiles();
+    this.removeAllLayersExceptMap();
+    this.addVisibleMarkersToMap();
+  }
+
+  private removeAllLayersExceptMap() {
+    this.map.eachLayer((l) => {
+      if (l !== this.tileLayer) l.remove();
+    });
+  }
+
+  private addVisibleMarkersToMap() {
     for (let category of this.categories) {
       for (let amenity of category.amenities) {
         if (amenity.checked) this.markers.get(amenity.id)?.addTo(this.map);
