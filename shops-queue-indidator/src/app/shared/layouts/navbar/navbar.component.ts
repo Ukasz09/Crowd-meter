@@ -16,13 +16,30 @@ import {
 export class NavbarComponent implements OnInit {
   static readonly NAVBAR_HEIGHT_PX = 75;
   readonly LOGO_IMG_PATH = 'assets/images/logo-orange.png';
+  fieldsName = {
+    name: 'name',
+    city: 'city',
+    street: 'street',
+    houseNumber: 'house number',
+  };
+
   @Input() categories: PlaceCategorySchema[];
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
+  @Input() fieldsUsedInSearchSuggestions: string[] = [];
+
   @Output() searchSuggestionChosen = new EventEmitter<MarkerSchema>();
   @Output() logoClick = new EventEmitter<any>();
   @Output() filterChange = new EventEmitter<any>();
+
   isBs3 = isBs3();
   search: string;
+
+  get searchPlaceholder(): string {
+    let names: string[] = [];
+    for (let fieldId of this.fieldsUsedInSearchSuggestions)
+      names.push(this.fieldsName[fieldId] ?? fieldId);
+    return names.join(', ');
+  }
 
   constructor() {}
 

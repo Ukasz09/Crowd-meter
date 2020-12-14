@@ -13,6 +13,7 @@
         [typeahead]="searchSuggestions"
         [optionsListTemplate]="customListTemplate"
         [typeaheadMinLength]="0"
+        placeholder="Search by field: {{ searchPlaceholder }}"
         typeaheadOptionField="suggestion"
         class="form-control bg-light input-custom"
         (typeaheadOnSelect)="onSearchSelect($event)"
@@ -31,7 +32,7 @@
       id="button-animated"
       dropdownToggle
       type="button"
-      class="btn btn-warning btn-group"
+      class="btn btn-warning border border-secondary btn-group"
       aria-controls="dropdown-animated"
     >
       <i class="material-icons">filter_alt</i>
@@ -42,7 +43,7 @@
       *dropdownMenu
       class="dropdown-menu dropdown-menu-right"
       role="menu"
-      style="max-height: 50vh; overflow-y: auto; overflow-x: hidden;"
+      style="max-height: 50vh; overflow-y: auto; overflow-x: hidden"
       aria-labelledby="button-animated"
     >
       <li *ngFor="let category of categories" role="menuitem">
@@ -59,13 +60,16 @@
           </label>
 
           <!-- AMENITIES -->
-          <div *ngFor="let amenity of category.amenities" class="custom-control custom-checkbox ml-2">
+          <div
+            *ngFor="let amenity of category.amenities"
+            class="custom-control custom-checkbox ml-2"
+          >
             <input
-            [id]="amenity.id"
-            type="checkbox"
-            class="custom-control-input"
-            [checked]="amenity.checked"
-            (change)="amenityCheckedChange(amenity)"
+              [id]="amenity.id"
+              type="checkbox"
+              class="custom-control-input"
+              [checked]="amenity.checked"
+              (change)="amenityCheckedChange(amenity)"
             />
             <label [for]="amenity.id" class="custom-control-label">
               {{ amenity.name | titlecase }}

@@ -14,9 +14,10 @@ import { PlaceCategorySchema } from 'src/app/data/schema/place-category';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  fieldsUsedInSearchSuggestions = ['name', 'city', 'street', 'houseNumber'];
   modalRef: BsModalRef;
   chosenMarker: MarkerSchema;
-
+  markersSchema: MarkerSchema[] = [];
   placeCategories: PlaceCategorySchema[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
 
@@ -58,10 +59,24 @@ export class HomeComponent implements OnInit {
 
   private fetchMarkers() {
     this.markersService.getMarkers().subscribe((markers: MarkerSchema[]) => {
+      this.markersSchema = markers;
       this.mapComponent.initMarkers(markers);
       this.mapComponent.showOnlyVisibleMarkersOnMap();
       this.initSearchSuggestions(markers);
     });
+  }
+
+  private updateSearchSuggestions() {
+    let visibleMarkersAmenities: string[] = [];
+    for (let category of this.mapComponent.categories) {
+      visibleMarkersAmenities = visibleMarkersAmenities.concat(
+        category.amenities.filter((a) => a.checked).map((a) => a.id)
+      );
+    }
+    let markers = this.markersSchema.filter((m) =>
+      visibleMarkersAmenities.includes(m.amenity)
+    );
+    this.initSearchSuggestions(markers);
   }
 
   private initSearchSuggestions(markers: MarkerSchema[]) {
@@ -76,15 +91,11 @@ export class HomeComponent implements OnInit {
 
   private getSuggestionValueFromModel(marker: MarkerSchema): string {
     let delim = ',';
-    return (
-      marker.name +
-      delim +
-      marker.city +
-      delim +
-      marker.street +
-      delim +
-      marker.houseNumber
-    );
+    let suggestion: string = '';
+    for (let field of this.fieldsUsedInSearchSuggestions) {
+      suggestion += marker[field] + delim;
+    }
+    return suggestion;
   }
 
   onSearchSuggestionChosen(
@@ -102,5 +113,10 @@ export class HomeComponent implements OnInit {
     let latLng: [number, number] = MapComponent.STARTED_LATLNG;
     let zoom = MapComponent.defaultZoom;
     this.mapComponent.setMapView(latLng[0], latLng[1], zoom);
+  }
+
+  onFilterChange() {
+    this.mapComponent.showOnlyVisibleMarkersOnMap();
+    this.updateSearchSuggestions();
   }
 }
