@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
   private fetchMarkers() {
     this.markersService.getMarkers().subscribe((markers: MarkerSchema[]) => {
       this.mapComponent.initMarkers(markers);
+      this.mapComponent.showOnlyVisibleMarkersOnMap();
       this.initSearchSuggestions(markers);
     });
   }

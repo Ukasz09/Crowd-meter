@@ -3,12 +3,13 @@
   [searchSuggestions]="searchSuggestions"
   (searchSuggestionChosen)="onSearchSuggestionChosen($event, markerDetails)"
   (logoClick)="onLogoClick()"
+  (filterChange)="map.showOnlyVisibleMarkersOnMap()"
 ></app-navbar>
 <div
   class="container-fluid custom-map-container"
   [ngStyle]="{ height: mapHeightStyle }"
 >
-  <app-map
+  <app-map #map
     (markerClick)="markerClickAction($event, markerDetails)"
     [categories]="placeCategories"
   ></app-map>

@@ -59,12 +59,20 @@ export class MapComponent implements OnInit {
         markersMapArr.set(model.amenity, markersArr);
       }
     }
-
     for (let markersEntry of markersMapArr.entries()) {
       let amenity: string = markersEntry[0];
       let markersLayer = L.layerGroup(markersEntry[1]);
       this.markers.set(amenity, markersLayer);
-      markersLayer.addTo(this.map);
+    }
+  }
+
+  showOnlyVisibleMarkersOnMap() {
+    this.map.eachLayer((l) => l.remove());
+    this.initMapTiles();
+    for (let category of this.categories) {
+      for (let amenity of category.amenities) {
+        if (amenity.checked) this.markers.get(amenity.id)?.addTo(this.map);
+      }
     }
   }
 

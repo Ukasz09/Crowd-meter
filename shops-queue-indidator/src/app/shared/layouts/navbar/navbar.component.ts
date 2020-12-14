@@ -3,7 +3,10 @@ import { MarkerSchema } from 'src/app/data/schema/marker';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { isBs3 } from 'ngx-bootstrap/utils';
-import { AmenityTypeSchema, PlaceCategorySchema } from 'src/app/data/schema/place-category';
+import {
+  AmenityTypeSchema,
+  PlaceCategorySchema,
+} from 'src/app/data/schema/place-category';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +20,7 @@ export class NavbarComponent implements OnInit {
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
   @Output() searchSuggestionChosen = new EventEmitter<MarkerSchema>();
   @Output() logoClick = new EventEmitter<any>();
+  @Output() filterChange = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;
 
@@ -48,11 +52,13 @@ export class NavbarComponent implements OnInit {
 
   amenityCheckedChange(amenity: AmenityTypeSchema) {
     amenity.checked = !amenity.checked;
+    this.filterChange.emit();
   }
 
   categoryCheckedChange(category: PlaceCategorySchema) {
     let beforeValue = this.groupIsChecked(category);
     let newValue = !beforeValue;
     for (let amenity of category.amenities) amenity.checked = newValue;
+    this.filterChange.emit();
   }
 }
