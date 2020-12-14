@@ -1,11 +1,17 @@
 <app-navbar
-  [categories]="categories"
+  [categories]="placeCategories"
   [searchSuggestions]="searchSuggestions"
   (searchSuggestionChosen)="onSearchSuggestionChosen($event, markerDetails)"
   (logoClick)="onLogoClick()"
 ></app-navbar>
-<div class="container-fluid custom-map-container" [ngStyle]="{'height':mapHeightStyle}">
-  <app-map (markerClick)="markerClickAction($event, markerDetails)"></app-map>
+<div
+  class="container-fluid custom-map-container"
+  [ngStyle]="{ height: mapHeightStyle }"
+>
+  <app-map
+    (markerClick)="markerClickAction($event, markerDetails)"
+    [categories]="placeCategories"
+  ></app-map>
 </div>
 
 <!-- TEMPLATES -->

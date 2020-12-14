@@ -46,63 +46,6 @@
     ]
   },
   {
-    "id": "education",
-    "name": "education",
-    "amenities": [
-      {
-        "id": "college",
-        "name": "college",
-        "checked": true
-      },
-      {
-        "id": "kindergarten",
-        "name": "kindergarten",
-        "checked": false
-      },
-      {
-        "id": "library",
-        "name": "library",
-        "checked": true
-      },
-      {
-        "id": "school",
-        "name": "school",
-        "checked": true
-      },
-      {
-        "id": "university",
-        "name": "university",
-        "checked": true
-      }
-    ]
-  },
-  {
-    "id": "healthcare",
-    "name": "healthcare",
-    "amenities": [
-      {
-        "id": "dentist",
-        "name": "dentist",
-        "checked": true
-      },
-      {
-        "id": "hospital",
-        "name": "hospital",
-        "checked": true
-      },
-      {
-        "id": "pharmacy",
-        "name": "pharmacy",
-        "checked": true
-      },
-      {
-        "id": "veterinary",
-        "name": "veterinary",
-        "checked": true
-      }
-    ]
-  },
-  {
     "id": "entertainment",
     "name": "entertainment",
     "amenities": [

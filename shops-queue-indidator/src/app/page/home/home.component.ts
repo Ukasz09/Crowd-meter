@@ -1,6 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { from } from 'rxjs';
 import { MarkerSchema } from 'src/app/data/schema/marker';
 import { CategoryService } from 'src/app/data/service/category.service';
 import { MarkersService } from 'src/app/data/service/markers.service';
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
   chosenMarker: MarkerSchema;
 
-  categories: PlaceCategorySchema[] = [];
+  placeCategories: PlaceCategorySchema[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
   private fetchCategories() {
     this.categoriesService
       .getCategories()
-      .subscribe((data: PlaceCategorySchema[]) => (this.categories = data));
+      .subscribe((data: PlaceCategorySchema[]) => (this.placeCategories = data));
   }
 
   private fetchMarkers() {

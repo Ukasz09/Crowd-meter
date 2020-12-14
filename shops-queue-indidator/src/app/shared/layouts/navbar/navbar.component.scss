@@ -1,6 +1,5 @@
 @use '/src/app/shared/styles/styles-variables.scss' as shared-var;
 @use '/src/app/shared/styles/styles-mixins.scss' as shared-mixins;
-@use '/src/app/shared/styles/shared.scss';
 
 .custom-list-group {
   display: flex;
