@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PlaceCategory } from '../model/place-category';
+import { MarkerSchema } from '../schema/marker';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class MarkersService {
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<PlaceCategory[]> {
-    return this.http.get<PlaceCategory[]>('assets/mocks/categories.json');
+  getMarkers(): Observable<MarkerSchema[]> {
+    return this.http.get<MarkerSchema[]>('assets/mock/markers.json');
   }
 }

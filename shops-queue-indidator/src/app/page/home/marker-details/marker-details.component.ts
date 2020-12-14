@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MarkerDetailedModel } from 'src/app/model/marker';
-import { CustomProgressbarComponent } from './custom-progressbar/custom-progressbar.component';
+import { MarkerSchema } from 'src/app/data/schema/marker';
+import { CustomProgressbarComponent } from 'src/app/shared/components/custom-progressbar/custom-progressbar.component';
 
 @Component({
   selector: 'app-marker-details',
@@ -9,7 +9,7 @@ import { CustomProgressbarComponent } from './custom-progressbar/custom-progress
 })
 export class MarkerDetailsComponent implements OnInit {
   lastRefreshDate: Date;
-  @Input() marker: MarkerDetailedModel;
+  @Input() marker: MarkerSchema;
 
   constructor() {}
 

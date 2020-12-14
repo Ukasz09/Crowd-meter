@@ -5,15 +5,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MapComponent } from './view/map/map.component';
-import { HomeComponent } from './view/home/home.component';
-import { NavbarComponent } from './view/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
-import { MarkerDetailsComponent } from './view/marker-details/marker-details.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
-import { CustomProgressbarComponent } from './view/marker-details/custom-progressbar/custom-progressbar.component';
+import { HomeComponent } from './page/home/home.component';
+import { MapComponent } from './page/home/map/map.component';
+import { MarkerDetailsComponent } from './page/home/marker-details/marker-details.component';
+import { CustomProgressbarComponent } from './shared/components/custom-progressbar/custom-progressbar.component';
+import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,

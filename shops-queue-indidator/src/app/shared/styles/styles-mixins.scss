@@ -1,0 +1,7 @@
+@use '/src/app/shared/styles/styles-variables.scss' as shared-var;
+
+@mixin primary-focus-shadow {
+  border-color: shared-var.$primary-color;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 4px shared-var.$primary-color;
+}

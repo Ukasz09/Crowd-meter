@@ -1,0 +1,21 @@
+@use '/src/app/shared/styles/styles-variables.scss' as shared-var;
+@use '/src/app/shared/styles/styles-mixins.scss' as shared-mixins;
+
+//TODO:
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: shared-var.$primary-color !important;
+  border: none;
+}
+
+.custom-checkbox
+  .custom-control-input:checked:focus
+  ~ .custom-control-label::before {
+  @include shared-mixins.primary-focus-shadow();
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  @include shared-mixins.primary-focus-shadow();
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: shared-var.$primary-accent-light;
+  border: none;
+}

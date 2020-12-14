@@ -1,12 +1,13 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { MarkerDetailedModel } from 'src/app/model/marker';
-import { PlaceCategory } from 'src/app/model/place-category';
+import { from } from 'rxjs';
+import { MarkerSchema } from 'src/app/data/schema/marker';
+import { CategoryService } from 'src/app/data/service/category.service';
+import { MarkersService } from 'src/app/data/service/markers.service';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
-import { CategoryService } from 'src/app/services/category.service';
-import { MarkersService } from 'src/app/services/markers.service';
-import { MapComponent } from '../map/map.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarComponent } from 'src/app/shared/layouts/navbar/navbar.component';
+import { MapComponent } from './map/map.component';
+import { PlaceCategorySchema } from 'src/app/data/schema/place-category';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +16,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
 })
 export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
-  chosenMarker: MarkerDetailedModel;
+  chosenMarker: MarkerSchema;
 
-  categories: PlaceCategory[] = [];
+  categories: PlaceCategorySchema[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.modalService.show(template, config);
   }
 
-  markerClickAction(markerModel: MarkerDetailedModel, template: TemplateRef<any>) {
+  markerClickAction(markerModel: MarkerSchema, template: TemplateRef<any>) {
     this.chosenMarker = markerModel;
     this.mapComponent.setMapView(
       markerModel.latitude,
@@ -51,17 +52,17 @@ export class HomeComponent implements OnInit {
   private fetchCategories() {
     this.categoriesService
       .getCategories()
-      .subscribe((data: PlaceCategory[]) => (this.categories = data));
+      .subscribe((data: PlaceCategorySchema[]) => (this.categories = data));
   }
 
   private fetchMarkers() {
-    this.markersService.getMarkers().subscribe((markers: MarkerDetailedModel[]) => {
+    this.markersService.getMarkers().subscribe((markers: MarkerSchema[]) => {
       this.mapComponent.initMarkers(markers);
       this.initSearchSuggestions(markers);
     });
   }
 
-  private initSearchSuggestions(markers: MarkerDetailedModel[]) {
+  private initSearchSuggestions(markers: MarkerSchema[]) {
     let suggestions: SearchSuggestionModel[] = [];
     for (let m of markers) {
       let suggestionValue = this.getSuggestionValueFromModel(m);
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
     this.searchSuggestions = suggestions;
   }
 
-  private getSuggestionValueFromModel(marker: MarkerDetailedModel): string {
+  private getSuggestionValueFromModel(marker: MarkerSchema): string {
     let delim = ',';
     return (
       marker.name +
@@ -87,7 +88,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSearchSuggestionChosen(
-    model: MarkerDetailedModel,
+    model: MarkerSchema,
     detailModalTemplate: TemplateRef<any>
   ) {
     this.markerClickAction(model, detailModalTemplate);

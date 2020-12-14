@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MarkerDetailedModel } from 'src/app/model/marker';
-import { AmenityType, PlaceCategory } from 'src/app/model/place-category';
+import { MarkerSchema } from 'src/app/data/schema/marker';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { isBs3 } from 'ngx-bootstrap/utils';
-import { FormGroup } from '@angular/forms';
+import { AmenityTypeSchema, PlaceCategorySchema } from 'src/app/data/schema/place-category';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +13,9 @@ import { FormGroup } from '@angular/forms';
 export class NavbarComponent implements OnInit {
   static readonly NAVBAR_HEIGHT_PX = 75;
   readonly LOGO_IMG_PATH = 'assets/images/logo-orange.png';
-  @Input() categories: PlaceCategory[];
+  @Input() categories: PlaceCategorySchema[];
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
-  @Output() searchSuggestionChosen = new EventEmitter<MarkerDetailedModel>();
+  @Output() searchSuggestionChosen = new EventEmitter<MarkerSchema>();
   @Output() logoClick = new EventEmitter<any>();
   isBs3 = isBs3();
   search: string;
@@ -41,18 +40,18 @@ export class NavbarComponent implements OnInit {
     this.logoClick.emit();
   }
 
-  groupIsChecked(category: PlaceCategory): boolean {
+  groupIsChecked(category: PlaceCategorySchema): boolean {
     for (let amenity of category.amenities) {
       if (amenity.checked == false) return false;
     }
     return true;
   }
 
-  amenityCheckedChange(amenity: AmenityType) {
+  amenityCheckedChange(amenity: AmenityTypeSchema) {
     amenity.checked = !amenity.checked;
   }
 
-  categoryCheckedChange(category: PlaceCategory) {
+  categoryCheckedChange(category: PlaceCategorySchema) {
     let beforeValue = this.groupIsChecked(category);
     let newValue = !beforeValue;
     for (let amenity of category.amenities) amenity.checked = newValue;

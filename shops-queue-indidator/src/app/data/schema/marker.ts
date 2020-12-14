@@ -1,17 +1,4 @@
-// export class MarkerModel {
-//   constructor(
-//     public id: string,
-//     public latitude: number,
-//     public longitude: number,
-//     public city: string,
-//     public street: string,
-//     public housenumber: string,
-//     public amenity: string,
-//     public name: string
-//   ) {}
-// }
-
-export class MarkerDetailedModel {
+export class MarkerSchema {
   constructor(
     public id: string,
     public latitude: number,

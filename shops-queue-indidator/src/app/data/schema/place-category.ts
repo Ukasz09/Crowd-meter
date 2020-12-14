@@ -1,4 +1,4 @@
-export class AmenityType {
+export class AmenityTypeSchema {
   constructor(
     public id: string,
     public name: string,
@@ -6,10 +6,10 @@ export class AmenityType {
   ) {}
 }
 
-export class PlaceCategory {
+export class PlaceCategorySchema {
   constructor(
     public id: string,
     public name: string,
-    public amenities: AmenityType[]
+    public amenities: AmenityTypeSchema[]
   ) {}
 }
