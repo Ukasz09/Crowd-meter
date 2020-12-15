@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  crowdMeterApi: 'http://localhost:4201',
 };
