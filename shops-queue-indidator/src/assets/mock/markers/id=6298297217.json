@@ -1,0 +1,22 @@
+{
+  "id": 6298297217,
+  "latitude": 51.1130204,
+  "longitude": 17.0594831,
+  "city": "Wroc\u0142aw",
+  "street": "Plac Grunwaldzki",
+  "houseNumber": "22",
+  "amenity": "cafe",
+  "name": "Etno Caf\u00e8",
+  "openingHours": {
+    "monday": "7:00-18:00",
+    "tuesday": "7:00-18:00",
+    "wednesday": "7:00-18:00",
+    "thursday": "7:00-18:00",
+    "friday": "7:00-18:00",
+    "saturday": "7:00-12:00",
+    "sunday": "7:00-12:00"
+  },
+  "website": "www.somewebsite.com",
+  "numberOfFreeSpace": 25,
+  "numberOfPeoples": 1
+}

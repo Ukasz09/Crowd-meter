@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MockedApiService {
-  mockedUrls: Map<string, { jsonPath: string; mockedForQuery: boolean }>;
+  mockedUrls: Map<string, { jsonName: string; mockedForQuery: boolean }>;
 
   constructor(private http: HttpClient) {
     this.initMockedUrls();
@@ -23,11 +23,11 @@ export class MockedApiService {
     this.mockedUrls = new Map([
       [
         environment.crowdMeterApi + Slugs.CATEGORIES,
-        { jsonPath: 'assets/mock/categories.json', mockedForQuery: false },
+        { jsonName: 'assets/mock/categories', mockedForQuery: false },
       ],
       [
         environment.crowdMeterApi + Slugs.MARKERS,
-        { jsonPath: 'assets/mock/markers.json', mockedForQuery: false },
+        { jsonName: 'assets/mock/markers', mockedForQuery: true },
       ],
     ]);
   }
@@ -36,7 +36,7 @@ export class MockedApiService {
     let mockProperties = this.mockedUrls.get(url);
     if (mockProperties === undefined) {
       return this.getWithQuery(url, options);
-    } else return this.http.get<T>(mockProperties.jsonPath);
+    } else return this.http.get<T>(mockProperties.jsonName + '.json');
   }
 
   private getWithQuery<T>(url: string, options?: httpOptions): Observable<T> {
@@ -51,9 +51,10 @@ export class MockedApiService {
         'Not found mocked data for given URL'
       );
     else {
-      if (mockProperties.mockedForQuery)
-        return this.http.get<T>(mockProperties.jsonPath + '?' + query);
-      else return this.http.get<T>(mockProperties.jsonPath);
+      if (mockProperties.mockedForQuery) {
+        const jsonPath = mockProperties.jsonName + '/' + query + '.json';
+        return this.http.get<T>(jsonPath);
+      } else return this.http.get<T>(mockProperties.jsonName + '.json');
     }
   }
 

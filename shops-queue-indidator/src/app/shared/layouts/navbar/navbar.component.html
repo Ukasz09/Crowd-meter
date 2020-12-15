@@ -9,6 +9,8 @@
     </div>
     <div class="w-100">
       <input
+        tooltip="Searching only from among the visible markers"
+        placement="bottom"
         [(ngModel)]="search"
         [typeahead]="searchSuggestions"
         [optionsListTemplate]="customListTemplate"

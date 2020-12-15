@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MarkerSchema } from 'src/app/data/schema/marker';
+import { MarkersService } from 'src/app/data/service/markers.service';
 import { CustomProgressbarComponent } from 'src/app/shared/components/custom-progressbar/custom-progressbar.component';
 
 @Component({
@@ -8,13 +9,28 @@ import { CustomProgressbarComponent } from 'src/app/shared/components/custom-pro
   styleUrls: ['./marker-details.component.scss'],
 })
 export class MarkerDetailsComponent implements OnInit {
+  @Input() markerId: string;
   lastRefreshDate: Date;
-  @Input() marker: MarkerSchema;
+  dataIsReady = false;
+  marker: MarkerSchema;
 
-  constructor() {}
+  constructor(private markersService: MarkersService) {}
 
   ngOnInit(): void {
-    this.lastRefreshDate = new Date(Date.now()); //TODO: tmp static
+    this.fetchMarkerDetails();
+  }
+
+  private fetchMarkerDetails() {
+    this.markersService.getMarker(this.markerId).subscribe(
+      (marker) => {
+        this.marker = marker;
+        this.dataIsReady = true;
+        this.lastRefreshDate = new Date(Date.now());
+      },
+      (error) => {
+        //TODO:
+      }
+    );
   }
 
   get actualCrowdLevelEmoji(): string {
@@ -73,7 +89,7 @@ export class MarkerDetailsComponent implements OnInit {
     );
   }
 
-  get openHoursEntries(): [string, string][]{
+  get openHoursEntries(): [string, string][] {
     return Object.entries(this.marker.openingHours);
   }
 }

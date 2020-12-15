@@ -1,0 +1,22 @@
+{
+  "id": 6367758663,
+  "latitude": 51.1126937,
+  "longitude": 17.0228337,
+  "city": "Wroc\u0142aw",
+  "street": "Podwale",
+  "houseNumber": "6",
+  "amenity": "cafe",
+  "name": "Bolter Cafe",
+  "openingHours": {
+    "monday": "7:00-18:00",
+    "tuesday": "7:00-18:00",
+    "wednesday": "7:00-18:00",
+    "thursday": "7:00-18:00",
+    "friday": "7:00-18:00",
+    "saturday": "7:00-12:00",
+    "sunday": "7:00-12:00"
+  },
+  "website": "www.somewebsite.com",
+  "numberOfFreeSpace": 40,
+  "numberOfPeoples": 35
+}

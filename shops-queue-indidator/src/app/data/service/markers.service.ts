@@ -16,8 +16,14 @@ export class MarkersService {
   ) {}
 
   getMarkers(): Observable<MarkerSchema[]> {
-    return this.mockedApiService.get<MarkerSchema[]>(
-      environment.crowdMeterApi + Slugs.MARKERS
-    );
+    const ENDPOINT = environment.crowdMeterApi + Slugs.MARKERS;
+    return this.mockedApiService.get<MarkerSchema[]>(ENDPOINT);
+  }
+
+  getMarker(markerId: string): Observable<MarkerSchema> {
+    const URL = environment.crowdMeterApi + Slugs.MARKERS;
+    const QUERY = '?id=' + markerId;
+    const ENDPOINT = URL + QUERY;
+    return this.mockedApiService.get<MarkerSchema>(ENDPOINT);
   }
 }

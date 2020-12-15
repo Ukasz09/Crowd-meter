@@ -1,0 +1,22 @@
+{
+  "id": 6375910123,
+  "latitude": 51.1040819,
+  "longitude": 17.0812964,
+  "city": "Wroc\u0142aw",
+  "street": "Zygmunta Wr\u00f3blewskiego",
+  "houseNumber": "7",
+  "amenity": "cafe",
+  "name": "Petits Fours Caf\u00e9",
+  "openingHours": {
+    "monday": "7:00-18:00",
+    "tuesday": "7:00-18:00",
+    "wednesday": "7:00-18:00",
+    "thursday": "7:00-18:00",
+    "friday": "7:00-18:00",
+    "saturday": "7:00-12:00",
+    "sunday": "7:00-12:00"
+  },
+  "website": "www.somewebsite.com",
+  "numberOfFreeSpace": 10,
+  "numberOfPeoples": 15
+}

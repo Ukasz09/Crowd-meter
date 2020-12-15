@@ -1,0 +1,22 @@
+{
+  "id": 6311815713,
+  "latitude": 51.1169801,
+  "longitude": 17.0326549,
+  "city": "Wroc\u0142aw",
+  "street": "Stanis\u0142awa Dubois",
+  "houseNumber": "6/2",
+  "amenity": "cafe",
+  "name": "\u0141askotki",
+  "openingHours": {
+    "monday": "7:00-18:00",
+    "tuesday": "7:00-18:00",
+    "wednesday": "7:00-18:00",
+    "thursday": "7:00-18:00",
+    "friday": "7:00-18:00",
+    "saturday": "7:00-12:00",
+    "sunday": "7:00-12:00"
+  },
+  "website": "www.somewebsite.com",
+  "numberOfFreeSpace": 30,
+  "numberOfPeoples": 15
+}

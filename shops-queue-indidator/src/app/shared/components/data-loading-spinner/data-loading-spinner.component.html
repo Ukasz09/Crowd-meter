@@ -1,0 +1,12 @@
+<div class="h-100 w-100 d-flex align-items-center justify-content-center">
+  <div class="text-center">
+    <div
+      class="spinner-border text-warning"
+      role="status"
+      style="width: 4em; height: 4em"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div *ngIf="text !== undefined" class="h5 py-4">{{ text }}</div>
+  </div>
+</div>

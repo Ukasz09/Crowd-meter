@@ -14,6 +14,8 @@ import { MapComponent } from './page/home/map/map.component';
 import { MarkerDetailsComponent } from './page/home/marker-details/marker-details.component';
 import { CustomProgressbarComponent } from './shared/components/custom-progressbar/custom-progressbar.component';
 import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { DataLoadingSpinnerComponent } from './shared/components/data-loading-spinner/data-loading-spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,7 @@ import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
     NavbarComponent,
     MarkerDetailsComponent,
     CustomProgressbarComponent,
+    DataLoadingSpinnerComponent,
   ],
   imports: [
     HttpClientModule,
@@ -32,6 +35,7 @@ import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
     ModalModule.forRoot(),
     TypeaheadModule.forRoot(),
     BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
     ProgressbarModule.forRoot(),
   ],
   providers: [],

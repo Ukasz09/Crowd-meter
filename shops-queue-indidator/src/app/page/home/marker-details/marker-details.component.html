@@ -1,110 +1,126 @@
-<div class="container-fluid bg-accent-light details-modal rounded" style="font-size: 1.2em">
-  <div class="d-flex flex-column">
-    <div class="text-center py-4">
-      <h2 class="font-weight-bold">{{ marker.name }}</h2>
-    </div>
-  </div>
-  <!-- LOCALIZATION -->
-  <div class="d-flex flex-row align-items-center">
-    <span class="material-icons mx-2"> location_on </span>
-    <span class="py-2 mx-3 flex-fill">
-      {{ marker.city }}, ul.{{ marker.street }}
-      {{ marker.houseNumber }}
-    </span>
-  </div>
-  <!-- /LOCALIZATION -->
-  <!-- OPEN TIME -->
-  <div class="d-flex flex-row py-2">
-    <span class="material-icons mx-2 d-flex align-items-center">
-      access_time
-    </span>
-    <div class="d-flex flex-column w-50">
-      <div class="btn-group w-100" dropdown>
-        <button
-          id="open-hours-btn"
-          dropdownToggle
-          type="button"
-          class="btn dropdown-toggle text-left"
-          aria-controls="open-hours-btn"
-        >
-          Open hours <span class="caret"></span>
-        </button>
-        <ul
-          id="open-hours-btn"
-          *dropdownMenu
-          class="dropdown-menu"
-          role="menu"
-          aria-labelledby="open-hours-btn"
-        >
-          <li role="menuitem">
-            <a
-              *ngFor="let dayEntry of openHoursEntries"
-              class="dropdown-item"
-              href="#"
-            >
-            <div class="row">
-              <div class="col-sm-6 font-weight-bold badge-weekday text-center rounded">
-                {{ dayEntry[0] |titlecase }}
-              </div>
-              <div class="col-sm-6">
-                {{ dayEntry[1] }}
-              </div>
-            </div>
-            </a>
-          </li>
-        </ul>
+<div
+  class="container-fluid bg-accent-light details-modal rounded"
+  style="font-size: 1.2em"
+>
+  <ng-container *ngIf="dataIsReady; else dataLoadingTemplate">
+    <div class="d-flex flex-column">
+      <div class="text-center py-4">
+        <h2 class="font-weight-bold">{{ marker.name }}</h2>
       </div>
     </div>
-  </div>
-  <!-- /OPEN TIME -->
-  <!-- WEBSITE-->
-  <div class="d-flex flex-row">
-    <span class="material-icons mx-2 d-flex align-items-center">
-      contact_page
-    </span>
-    <span class="py-2 mx-3 flex-fill"
-      ><a href="http://{{marker.website}}">website</a>
-    </span>
-  </div>
-  <!-- /WEBSITE-->
-  <!-- STATUS INFO PANEL -->
-  <div class="py-4">
-    <div class="text-center font-weight-bold py-2">OVERCROWDING LEVEL:</div>
-    <app-custom-progressbar
-      [actualValue]="marker.numberOfPeoples"
-      [maxValue]="marker.numberOfFreeSpace"
-    ></app-custom-progressbar>
-    <div class="d-flex flex-row pt-5 pb-3">
+    <!-- LOCALIZATION -->
+    <div class="d-flex flex-row align-items-center">
+      <span class="material-icons mx-2"> location_on </span>
+      <span class="py-2 mx-3 flex-fill">
+        {{ marker.city }}, ul.{{ marker.street }}
+        {{ marker.houseNumber }}
+      </span>
+    </div>
+    <!-- /LOCALIZATION -->
+    <!-- OPEN TIME -->
+    <div class="d-flex flex-row py-2">
+      <span class="material-icons mx-2 d-flex align-items-center">
+        access_time
+      </span>
       <div class="d-flex flex-column w-50">
-        <div>
-          <span class="font-weight-bold">Free spaces:</span
-          ><span> {{ numberOfActualFreeSpaces }}</span>
+        <div class="btn-group w-100" dropdown>
+          <button
+            id="open-hours-btn"
+            dropdownToggle
+            type="button"
+            class="btn dropdown-toggle text-left"
+            aria-controls="open-hours-btn"
+          >
+            Open hours <span class="caret"></span>
+          </button>
+          <ul
+            id="open-hours-btn"
+            *dropdownMenu
+            class="dropdown-menu"
+            role="menu"
+            aria-labelledby="open-hours-btn"
+          >
+            <li role="menuitem">
+              <a
+                *ngFor="let dayEntry of openHoursEntries"
+                class="dropdown-item"
+                href="#"
+              >
+                <div class="row">
+                  <div
+                    class="col-sm-6 font-weight-bold badge-weekday text-center rounded"
+                  >
+                    {{ dayEntry[0] | titlecase }}
+                  </div>
+                  <div class="col-sm-6">
+                    {{ dayEntry[1] }}
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div>
-          <span class="font-weight-bold"> Total spaces: </span>
-          <span>
-            {{ marker.numberOfFreeSpace }}
-          </span>
-        </div>
-      </div>
-      <div
-        class="flex-fill justify-content-center d-flex align-items-center {{
-          actualCrowdColorClass
-        }}"
-      >
-        <i class="material-icons md-50"> {{ actualCrowdLevelEmoji }} </i>
-        <span class="mx-3 font-weight-bold">{{
-          actualCrowdLevelText | uppercase
-        }}</span>
       </div>
     </div>
-  </div>
-  <!-- /STATUS INFO PANEL -->
-  <div
-    class="text-center font-weight-bold text-secondary pt-3"
-    style="font-size: 0.8em"
-  >
-    Last data update:
-    {{ lastRefreshDateText }}
-  </div>
+    <!-- /OPEN TIME -->
+    <!-- WEBSITE-->
+    <div class="d-flex flex-row">
+      <span class="material-icons mx-2 d-flex align-items-center">
+        contact_page
+      </span>
+      <span class="py-2 mx-3 flex-fill"
+        ><a href="http://{{ marker.website }}">website</a>
+      </span>
+    </div>
+    <!-- /WEBSITE-->
+    <!-- STATUS INFO PANEL -->
+    <div class="py-4">
+      <div class="text-center font-weight-bold py-2">OVERCROWDING LEVEL:</div>
+      <app-custom-progressbar
+        [actualValue]="marker.numberOfPeoples"
+        [maxValue]="marker.numberOfFreeSpace"
+      ></app-custom-progressbar>
+      <div class="d-flex flex-row pt-5 pb-3">
+        <div class="d-flex flex-column w-50">
+          <div>
+            <span class="font-weight-bold">Free spaces:</span
+            ><span> {{ numberOfActualFreeSpaces }}</span>
+          </div>
+          <div>
+            <span class="font-weight-bold"> Total spaces: </span>
+            <span>
+              {{ marker.numberOfFreeSpace }}
+            </span>
+          </div>
+        </div>
+        <div
+          class="flex-fill justify-content-center d-flex align-items-center {{
+            actualCrowdColorClass
+          }}"
+        >
+          <i class="material-icons md-50"> {{ actualCrowdLevelEmoji }} </i>
+          <span class="mx-3 font-weight-bold">{{
+            actualCrowdLevelText | uppercase
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <!-- /STATUS INFO PANEL -->
+    <div
+      class="text-center font-weight-bold text-secondary pt-3"
+      style="font-size: 0.8em"
+    >
+      Last data update:
+      {{ lastRefreshDateText }}
+    </div>
+  </ng-container>
 </div>
+
+<ng-template #dataLoadingTemplate>
+  <div class="py-5">
+    <app-data-loading-spinner
+      class="my-5"
+      text="Loading marker's details"
+    ></app-data-loading-spinner>
+  </div>
+</ng-template>
