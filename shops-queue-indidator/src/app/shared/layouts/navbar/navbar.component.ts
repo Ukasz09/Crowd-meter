@@ -1,12 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MarkerSchema } from 'src/app/data/schema/marker';
-import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
+import { MarkerSchema } from 'src/app/data/schema/marker.schema';
+import { SearchSuggestionModel } from 'src/app/model/search-suggestion.model';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { isBs3 } from 'ngx-bootstrap/utils';
-import {
-  AmenityTypeSchema,
-  PlaceCategorySchema,
-} from 'src/app/data/schema/place-category';
+import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
+import { AmenityTypeModel } from 'src/app/model/amenity-type.model';
 
 @Component({
   selector: 'app-navbar',
@@ -70,7 +68,7 @@ export class NavbarComponent implements OnInit {
     return true;
   }
 
-  amenityCheckedChange(amenity: AmenityTypeSchema): void {
+  amenityCheckedChange(amenity: AmenityTypeModel): void {
     amenity.checked = !amenity.checked;
     this.filterChange.emit();
   }

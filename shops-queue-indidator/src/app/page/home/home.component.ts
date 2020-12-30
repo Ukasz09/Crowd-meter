@@ -1,12 +1,12 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { MarkerSchema } from 'src/app/data/schema/marker';
+import { MarkerSchema } from 'src/app/data/schema/marker.schema';
 import { CategoryService } from 'src/app/data/service/category.service';
 import { MarkersService } from 'src/app/data/service/markers.service';
-import { SearchSuggestionModel } from 'src/app/model/search-suggestion';
+import { SearchSuggestionModel } from 'src/app/model/search-suggestion.model';
 import { NavbarComponent } from 'src/app/shared/layouts/navbar/navbar.component';
 import { MapComponent } from './map/map.component';
-import { PlaceCategorySchema } from 'src/app/data/schema/place-category';
+import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
 
 @Component({
   selector: 'app-home',

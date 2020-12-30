@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PlaceCategorySchema } from '../schema/place-category';
+import { PlaceCategorySchema } from '../schema/place-category.schema';
 import { MockedApiService } from './mocked-api.service';
 import { Slugs } from './slugs';
 

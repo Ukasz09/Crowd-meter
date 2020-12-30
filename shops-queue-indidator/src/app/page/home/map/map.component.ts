@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
-import { MarkerSchema } from 'src/app/data/schema/marker';
-import { PlaceCategorySchema } from 'src/app/data/schema/place-category';
+import { MarkerSchema } from 'src/app/data/schema/marker.schema';
+import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
 import { AmenityMarkers } from './amenity-markers';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MarkerSchema } from 'src/app/data/schema/marker';
+import { MarkerSchema } from 'src/app/data/schema/marker.schema';
 import { MarkersService } from 'src/app/data/service/markers.service';
 import { CustomProgressbarComponent } from 'src/app/shared/components/custom-progressbar/custom-progressbar.component';
 

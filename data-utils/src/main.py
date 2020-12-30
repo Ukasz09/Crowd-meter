@@ -22,7 +22,7 @@ def get_amenity_query(amenity_type: str, timeout: int = QUERY_TIMEOUT, area: str
         .format(str(timeout), area, amenity_type)
 
 
-def request_amenity(amenity_type: str):
+def request_amenity(amenity_type: str) -> None:
     response = requests.get(API_URL, params={'data': get_amenity_query(amenity_type)})
     amenities_lists = response.json()['elements']
     result_list = src.parser.process_amenity_data('cafe', amenities_lists)
