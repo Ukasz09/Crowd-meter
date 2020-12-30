@@ -34,11 +34,14 @@ export class HomeComponent implements OnInit {
     this.fetchMarkers();
   }
 
-  openModal(template: TemplateRef<any>, config: ModalOptions) {
+  openModal(template: TemplateRef<any>, config: ModalOptions): void {
     this.modalRef = this.modalService.show(template, config);
   }
 
-  markerClickAction(markerModel: MarkerSchema, template: TemplateRef<any>) {
+  markerClickAction(
+    markerModel: MarkerSchema,
+    template: TemplateRef<any>
+  ): void {
     this.chosenMarker = markerModel;
     this.mapComponent.setMapView(
       markerModel.latitude,
@@ -49,7 +52,7 @@ export class HomeComponent implements OnInit {
     this.openModal(template, modalConfig);
   }
 
-  private fetchCategories() {
+  private fetchCategories(): void {
     this.categoriesService
       .getCategories()
       .subscribe(
@@ -57,7 +60,7 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  private fetchMarkers() {
+  private fetchMarkers(): void {
     this.markersService.getMarkers().subscribe((markers: MarkerSchema[]) => {
       this.markersSchema = markers;
       this.mapComponent.initMarkers(markers);
@@ -66,34 +69,35 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private updateSearchSuggestions() {
+  private updateSearchSuggestions(): void {
     let visibleMarkersAmenities: string[] = [];
-    for (let category of this.mapComponent.categories) {
+    for (const category of this.mapComponent.categories) {
       visibleMarkersAmenities = visibleMarkersAmenities.concat(
         category.amenities.filter((a) => a.checked).map((a) => a.id)
       );
     }
-    let markers = this.markersSchema.filter((m) =>
+
+    const markers = this.markersSchema.filter((m) =>
       visibleMarkersAmenities.includes(m.amenity)
     );
     this.initSearchSuggestions(markers);
   }
 
-  private initSearchSuggestions(markers: MarkerSchema[]) {
-    let suggestions: SearchSuggestionModel[] = [];
-    for (let m of markers) {
-      let suggestionValue = this.getSuggestionValueFromModel(m);
-      let suggestionModel = new SearchSuggestionModel(m, suggestionValue);
+  private initSearchSuggestions(markers: MarkerSchema[]): void {
+    const suggestions: SearchSuggestionModel[] = [];
+    for (const m of markers) {
+      const suggestionValue = this.getSuggestionValueFromModel(m);
+      const suggestionModel = new SearchSuggestionModel(m, suggestionValue);
       suggestions.push(suggestionModel);
     }
     this.searchSuggestions = suggestions;
   }
 
   private getSuggestionValueFromModel(marker: MarkerSchema): string {
-    let delim = ',';
-    let suggestion: string = '';
-    for (let field of this.fieldsUsedInSearchSuggestions) {
-      suggestion += marker[field] + delim;
+    const delimiter = ',';
+    let suggestion = '';
+    for (const field of this.fieldsUsedInSearchSuggestions) {
+      suggestion += marker[field] + delimiter;
     }
     return suggestion;
   }
@@ -101,7 +105,7 @@ export class HomeComponent implements OnInit {
   onSearchSuggestionChosen(
     model: MarkerSchema,
     detailModalTemplate: TemplateRef<any>
-  ) {
+  ): void {
     this.markerClickAction(model, detailModalTemplate);
   }
 
@@ -109,13 +113,13 @@ export class HomeComponent implements OnInit {
     return 'calc(100vh - ' + NavbarComponent.NAVBAR_HEIGHT_PX + 'px';
   }
 
-  onLogoClick() {
-    let latLng: [number, number] = MapComponent.STARTED_LATLNG;
-    let zoom = MapComponent.defaultZoom;
+  onLogoClick(): void {
+    const latLng: [number, number] = MapComponent.STARTED_LATLNG;
+    const zoom = MapComponent.defaultZoom;
     this.mapComponent.setMapView(latLng[0], latLng[1], zoom);
   }
 
-  onFilterChange() {
+  onFilterChange(): void {
     this.mapComponent.showOnlyVisibleMarkersOnMap();
     this.updateSearchSuggestions();
   }

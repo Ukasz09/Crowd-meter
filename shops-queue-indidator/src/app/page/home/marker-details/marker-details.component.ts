@@ -20,37 +20,42 @@ export class MarkerDetailsComponent implements OnInit {
     this.fetchMarkerDetails();
   }
 
-  private fetchMarkerDetails() {
+  private fetchMarkerDetails(): void {
     this.markersService.getMarker(this.markerId).subscribe(
       (marker) => {
         this.marker = marker;
         this.dataIsReady = true;
         this.lastRefreshDate = new Date(Date.now());
       },
-      (error) => {
-        //TODO:
-      }
+      (_) => {}
     );
   }
 
   get actualCrowdLevelEmoji(): string {
-    let perc = this.crowdednessPercent;
-    if (perc <= CustomProgressbarComponent.LOW_CROWDING_TRESHOLD)
+    const percent = this.crowdednessPercent;
+    if (percent <= CustomProgressbarComponent.LOW_CROWDING_THRESHOLD) {
       return 'sentiment_very_satisfied';
-    if (perc <= CustomProgressbarComponent.MEDIOCRE_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.MEDIOCRE_CROWDING_THRESHOLD) {
       return 'sentiment_satisfied';
-    if (perc <= CustomProgressbarComponent.HIGH_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.HIGH_CROWDING_THRESHOLD) {
       return 'sentiment_dissatisfied';
+    }
     return 'sentiment_very_dissatisfied';
   }
 
   get actualCrowdLevelText(): string {
-    let perc = this.crowdednessPercent;
-    if (perc <= CustomProgressbarComponent.LOW_CROWDING_TRESHOLD) return 'low';
-    if (perc <= CustomProgressbarComponent.MEDIOCRE_CROWDING_TRESHOLD)
+    const percent = this.crowdednessPercent;
+    if (percent <= CustomProgressbarComponent.LOW_CROWDING_THRESHOLD) {
+      return 'low';
+    }
+    if (percent <= CustomProgressbarComponent.MEDIOCRE_CROWDING_THRESHOLD) {
       return 'mediocre';
-    if (perc <= CustomProgressbarComponent.HIGH_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.HIGH_CROWDING_THRESHOLD) {
       return 'high';
+    }
     return 'very high';
   }
 
@@ -59,13 +64,16 @@ export class MarkerDetailsComponent implements OnInit {
   }
 
   get actualCrowdColorClass(): string {
-    let perc = this.crowdednessPercent;
-    if (perc <= CustomProgressbarComponent.LOW_CROWDING_TRESHOLD)
+    const percent = this.crowdednessPercent;
+    if (percent <= CustomProgressbarComponent.LOW_CROWDING_THRESHOLD) {
       return 'text-success';
-    if (perc <= CustomProgressbarComponent.MEDIOCRE_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.MEDIOCRE_CROWDING_THRESHOLD) {
       return 'text-info';
-    if (perc <= CustomProgressbarComponent.HIGH_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.HIGH_CROWDING_THRESHOLD) {
       return 'text-warning';
+    }
     return 'text-danger';
   }
 

@@ -2,7 +2,7 @@
   class="navbar navbar-expand-lg sticky-top border border-secondary py-1 navbar-custom"
   [ngStyle]="{ 'height.px': navbarHeightPx }"
 >
-  <!-- CENTERED -->
+  <!-- ----------------------- CENTERED ---------------------- -->
   <div class="container py-4">
     <div class="navbar-brand mx-5 my-5">
       <img (click)="onLogoClick()" src="{{ LOGO_IMG_PATH }}" class="btn" />
@@ -22,8 +22,7 @@
       />
     </div>
   </div>
-  <!-- /CENTERED -->
-  <!-- FILTER BTN -->
+  <!-- ------------------------------------------- FILTER BTN ------------------------------------------- -->
   <div
     class="btn-group"
     [insideClick]="true"
@@ -60,8 +59,7 @@
           <label [for]="category.id" class="custom-control-label">
             {{ category.name | titlecase }}
           </label>
-
-          <!-- AMENITIES -->
+          <!-- ----------------------- AMENITIES ---------------------- -->
           <div
             *ngFor="let amenity of category.amenities"
             class="custom-control custom-checkbox ml-2"
@@ -77,15 +75,13 @@
               {{ amenity.name | titlecase }}
             </label>
           </div>
-          <!-- AMENITIES -->
         </div>
       </li>
     </ul>
   </div>
-  <!-- /FILTER BTN -->
 </nav>
 
-<!-- TEMPLATES -->
+<!-- ------------------------------------------- TEMPLATES ------------------------------------------- -->
 <ng-template #searchItemTemplate let-suggestion="item" let-index="index">
   <h5 class="font-weight-bold">
     {{ suggestion.model.name }}

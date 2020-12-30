@@ -1,7 +1,6 @@
 @use '/src/app/shared/styles/styles-variables.scss' as shared-var;
 @use '/src/app/shared/styles/styles-mixins.scss' as shared-mixins;
 
-//TODO:
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: shared-var.$primary-color !important;
   border: none;

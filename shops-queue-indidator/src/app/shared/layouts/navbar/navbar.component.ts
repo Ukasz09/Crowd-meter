@@ -35,9 +35,10 @@ export class NavbarComponent implements OnInit {
   search: string;
 
   get searchPlaceholder(): string {
-    let names: string[] = [];
-    for (let fieldId of this.fieldsUsedInSearchSuggestions)
+    const names: string[] = [];
+    for (const fieldId of this.fieldsUsedInSearchSuggestions) {
       names.push(this.fieldsName[fieldId] ?? fieldId);
+    }
     return names.join(', ');
   }
 
@@ -45,10 +46,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSearchSelect(match: TypeaheadMatch) {
+  onSearchSelect(match: TypeaheadMatch): void {
     this.search = '';
-    let searchSuggestion: SearchSuggestionModel = match.item;
-    let markerModel = searchSuggestion.model;
+    const searchSuggestion: SearchSuggestionModel = match.item;
+    const markerModel = searchSuggestion.model;
     this.searchSuggestionChosen.emit(markerModel);
   }
 
@@ -56,26 +57,30 @@ export class NavbarComponent implements OnInit {
     return NavbarComponent.NAVBAR_HEIGHT_PX;
   }
 
-  onLogoClick() {
+  onLogoClick(): void {
     this.logoClick.emit();
   }
 
   groupIsChecked(category: PlaceCategorySchema): boolean {
-    for (let amenity of category.amenities) {
-      if (amenity.checked == false) return false;
+    for (const amenity of category.amenities) {
+      if (amenity.checked === false) {
+        return false;
+      }
     }
     return true;
   }
 
-  amenityCheckedChange(amenity: AmenityTypeSchema) {
+  amenityCheckedChange(amenity: AmenityTypeSchema): void {
     amenity.checked = !amenity.checked;
     this.filterChange.emit();
   }
 
-  categoryCheckedChange(category: PlaceCategorySchema) {
-    let beforeValue = this.groupIsChecked(category);
-    let newValue = !beforeValue;
-    for (let amenity of category.amenities) amenity.checked = newValue;
+  categoryCheckedChange(category: PlaceCategorySchema): void {
+    const beforeValue = this.groupIsChecked(category);
+    const newValue = !beforeValue;
+    for (const amenity of category.amenities) {
+      amenity.checked = newValue;
+    }
     this.filterChange.emit();
   }
 }

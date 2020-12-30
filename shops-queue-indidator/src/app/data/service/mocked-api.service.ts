@@ -19,7 +19,7 @@ export class MockedApiService {
     this.initMockedUrls();
   }
 
-  private initMockedUrls() {
+  private initMockedUrls(): void {
     this.mockedUrls = new Map([
       [
         environment.crowdMeterApi + Slugs.CATEGORIES,
@@ -33,28 +33,32 @@ export class MockedApiService {
   }
 
   get<T>(url: string, options?: httpOptions): Observable<T> {
-    let mockProperties = this.mockedUrls.get(url);
+    const mockProperties = this.mockedUrls.get(url);
     if (mockProperties === undefined) {
       return this.getWithQuery(url, options);
-    } else return this.http.get<T>(mockProperties.jsonName + '.json');
+    } else {
+      return this.http.get<T>(mockProperties.jsonName + '.json');
+    }
   }
 
   private getWithQuery<T>(url: string, options?: httpOptions): Observable<T> {
     const query = url.substring(url.lastIndexOf('?') + 1);
     const slugWithoutQuery = url.substring(0, url.lastIndexOf('?'));
     const mockProperties = this.mockedUrls.get(slugWithoutQuery);
-    if (mockProperties === undefined)
+    if (mockProperties === undefined) {
       return this.getErrResponse(
         url,
         options,
         404,
         'Not found mocked data for given URL'
       );
-    else {
+    } else {
       if (mockProperties.mockedForQuery) {
         const jsonPath = mockProperties.jsonName + '/' + query + '.json';
         return this.http.get<T>(jsonPath);
-      } else return this.http.get<T>(mockProperties.jsonName + '.json');
+      } else {
+        return this.http.get<T>(mockProperties.jsonName + '.json');
+      }
     }
   }
 
@@ -69,7 +73,7 @@ export class MockedApiService {
       headers: undefined,
       status: statusCode ?? 404,
       statusText: msg ?? 'Mocked error response msg',
-      url: url,
+      url,
     });
     return throwError(error) as any;
   }
@@ -90,7 +94,7 @@ export class MockedApiService {
       headers: undefined,
       status: statusCode ?? 404,
       statusText: msg ?? 'Mocked error response msg',
-      url: url,
+      url,
     });
     return throwError(error) as any;
   }

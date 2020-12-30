@@ -14,7 +14,6 @@ export class MarkersService {
     private http: HttpClient,
     private mockedApiService: MockedApiService
   ) {}
-
   getMarkers(): Observable<MarkerSchema[]> {
     const ENDPOINT = environment.crowdMeterApi + Slugs.MARKERS;
     return this.mockedApiService.get<MarkerSchema[]>(ENDPOINT);

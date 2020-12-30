@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./custom-progressbar.component.scss'],
 })
 export class CustomProgressbarComponent implements OnInit {
-  static readonly LOW_CROWDING_TRESHOLD = 25;
-  static readonly MEDIOCRE_CROWDING_TRESHOLD = 50;
-  static readonly HIGH_CROWDING_TRESHOLD = 75;
+  static readonly LOW_CROWDING_THRESHOLD = 25;
+  static readonly MEDIOCRE_CROWDING_THRESHOLD = 50;
+  static readonly HIGH_CROWDING_THRESHOLD = 75;
 
   @Input() actualValue = 0;
   @Input() maxValue = 100;
@@ -18,13 +18,16 @@ export class CustomProgressbarComponent implements OnInit {
   ngOnInit(): void {}
 
   get type(): string {
-    let perc = (this.actualValue / this.maxValue) * 100;
-    if (perc <= CustomProgressbarComponent.LOW_CROWDING_TRESHOLD)
+    const percent = (this.actualValue / this.maxValue) * 100;
+    if (percent <= CustomProgressbarComponent.LOW_CROWDING_THRESHOLD) {
       return 'success';
-    if (perc <= CustomProgressbarComponent.MEDIOCRE_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.MEDIOCRE_CROWDING_THRESHOLD) {
       return 'info';
-    if (perc <= CustomProgressbarComponent.HIGH_CROWDING_TRESHOLD)
+    }
+    if (percent <= CustomProgressbarComponent.HIGH_CROWDING_THRESHOLD) {
       return 'warning';
+    }
     return 'danger';
   }
 }

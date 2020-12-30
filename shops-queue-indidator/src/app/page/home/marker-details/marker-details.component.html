@@ -8,7 +8,7 @@
         <h2 class="font-weight-bold">{{ marker.name }}</h2>
       </div>
     </div>
-    <!-- LOCALIZATION -->
+    <!-- ----------------------- LOCALIZATION ---------------------- -->
     <div class="d-flex flex-row align-items-center">
       <span class="material-icons mx-2"> location_on </span>
       <span class="py-2 mx-3 flex-fill">
@@ -16,8 +16,7 @@
         {{ marker.houseNumber }}
       </span>
     </div>
-    <!-- /LOCALIZATION -->
-    <!-- OPEN TIME -->
+    <!-- ----------------------- OPEN HOURS ---------------------- -->
     <div class="d-flex flex-row py-2">
       <span class="material-icons mx-2 d-flex align-items-center">
         access_time
@@ -44,7 +43,7 @@
               <a
                 *ngFor="let dayEntry of openHoursEntries"
                 class="dropdown-item"
-                href="#"
+                style="cursor: default"
               >
                 <div class="row">
                   <div
@@ -62,8 +61,7 @@
         </div>
       </div>
     </div>
-    <!-- /OPEN TIME -->
-    <!-- WEBSITE-->
+    <!-- ----------------------- WEBSITE ---------------------- -->
     <div class="d-flex flex-row">
       <span class="material-icons mx-2 d-flex align-items-center">
         contact_page
@@ -72,8 +70,7 @@
         ><a href="http://{{ marker.website }}">website</a>
       </span>
     </div>
-    <!-- /WEBSITE-->
-    <!-- STATUS INFO PANEL -->
+    <!-- ----------------------- STATUS INFO PANEL ---------------------- -->
     <div class="py-4">
       <div class="text-center font-weight-bold py-2">OVERCROWDING LEVEL:</div>
       <app-custom-progressbar
@@ -105,7 +102,6 @@
         </div>
       </div>
     </div>
-    <!-- /STATUS INFO PANEL -->
     <div
       class="text-center font-weight-bold text-secondary pt-3"
       style="font-size: 0.8em"
