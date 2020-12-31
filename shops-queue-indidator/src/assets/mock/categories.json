@@ -6,17 +6,17 @@
       {
         "id": "bar",
         "name": "bar",
-        "checked": true
+        "checked": false
       },
       {
         "id": "biergarten",
         "name": "biergarten",
-        "checked": true
+        "checked": false
       },
       {
         "id": "fast_food",
         "name": "fastFood",
-        "checked": true
+        "checked": false
       },
       {
         "id": "cafe",
@@ -26,17 +26,17 @@
       {
         "id": "food_court",
         "name": "food court",
-        "checked": true
+        "checked": false
       },
       {
         "id": "ice_cream",
         "name": "ice cream",
-        "checked": true
+        "checked": false
       },
       {
         "id": "pub",
         "name": "pub",
-        "checked": true
+        "checked": false
       },
       {
         "id": "restaurant",

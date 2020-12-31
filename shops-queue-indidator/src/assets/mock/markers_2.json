@@ -1,0 +1,222 @@
+[
+  {
+    "id": 6298096363,
+    "latitude": 51.1119685,
+    "longitude": 17.0323701,
+    "city": "Wroc\u0142aw",
+    "street": "Kotlarska",
+    "houseNumber": "25",
+    "amenity": "nightclub",
+    "name": "Sorrir",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 50,
+    "numberOfPeoples": 12
+  },
+  {
+    "id": 6298297217,
+    "latitude": 51.1130204,
+    "longitude": 17.0594831,
+    "city": "Wroc\u0142aw",
+    "street": "Plac Grunwaldzki",
+    "houseNumber": "22",
+    "amenity": "cafe",
+    "name": "Etno Caf\u00e8",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 25,
+    "numberOfPeoples": 1
+  },
+  {
+    "id": 6301946286,
+    "latitude": 51.1087491,
+    "longitude": 16.939241,
+    "city": "Wroc\u0142aw",
+    "street": "Graniczna",
+    "houseNumber": "4a",
+    "amenity": "cafe",
+    "name": "Etno Caf\u00e8",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 100,
+    "numberOfPeoples": 100
+  },
+  {
+    "id": 6311785150,
+    "latitude": 51.1044923,
+    "longitude": 17.0841579,
+    "city": "Wroc\u0142aw",
+    "street": "Tramwajowa",
+    "houseNumber": "2",
+    "amenity": "cafe",
+    "name": "Wuwa Caf\u00e9",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 75,
+    "numberOfPeoples": 3
+  },
+  {
+    "id": 6311815713,
+    "latitude": 51.1169801,
+    "longitude": 17.0326549,
+    "city": "Wroc\u0142aw",
+    "street": "Stanis\u0142awa Dubois",
+    "houseNumber": "6/2",
+    "amenity": "cafe",
+    "name": "\u0141askotki",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 30,
+    "numberOfPeoples": 15
+  },
+  {
+    "id": 6367758663,
+    "latitude": 51.1126937,
+    "longitude": 17.0228337,
+    "city": "Wroc\u0142aw",
+    "street": "Podwale",
+    "houseNumber": "6",
+    "amenity": "cafe",
+    "name": "Bolter Cafe",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 40,
+    "numberOfPeoples": 35
+  },
+  {
+    "id": 6375910123,
+    "latitude": 51.1040819,
+    "longitude": 17.0812964,
+    "city": "Wroc\u0142aw",
+    "street": "Zygmunta Wr\u00f3blewskiego",
+    "houseNumber": "7",
+    "amenity": "cafe",
+    "name": "Petits Fours Caf\u00e9",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 10,
+    "numberOfPeoples": 15
+  },
+  {
+    "id": 6402930598,
+    "latitude": 51.1101717,
+    "longitude": 17.02932,
+    "city": "Wroc\u0142aw",
+    "street": "Kie\u0142ba\u015bnicza",
+    "houseNumber": "2",
+    "amenity": "cafe",
+    "name": "Czarna Magia",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 50,
+    "numberOfPeoples": 1
+  },
+  {
+    "id": 6634188040,
+    "latitude": 51.1101665,
+    "longitude": 17.032358,
+    "city": "Wroc\u0142aw",
+    "street": "Przej\u015bcie Garncarskie 2",
+    "houseNumber": "2",
+    "amenity": "cafe",
+    "name": "Tajne Komplety",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "7:00-12:00",
+      "sunday": "7:00-12:00"
+    },
+    "website": "www.somewebsite.com",
+    "numberOfFreeSpace": 20,
+    "numberOfPeoples": 12
+  },
+  {
+    "id": 6757884544,
+    "latitude": 51.1103529,
+    "longitude": 17.0302618,
+    "city": "Wroc\u0142aw",
+    "houseNumber": "6",
+    "street": "Rynek",
+    "amenity": "cafe",
+    "name": "Popi\u00f3\u0142 i Diament",
+    "openingHours": {
+      "monday": "7:00-18:00",
+      "tuesday": "7:00-18:00",
+      "wednesday": "7:00-18:00",
+      "thursday": "7:00-18:00",
+      "friday": "7:00-18:00",
+      "saturday": "9:00-12:00",
+      "sunday": "9:00-12:00"
+    },
+    "website": "www.www.somewebsite.com",
+    "numberOfFreeSpace": 60,
+    "numberOfPeoples": 0
+  }
+]

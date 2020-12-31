@@ -8,6 +8,7 @@ id = "id"
 latitude = "lat"
 longitude = "lon"
 name = "name"
+amenity_resp_name = "amenity"
 city = "addr:city"
 houseNumber = "addr:housenumber"
 street = "addr:street"
@@ -33,22 +34,21 @@ default_city = "Wrocław"
 default_website = "http://unknown-site.com"
 
 
-def process_amenity_data(amenity_type: str, amenities_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def process_amenity_data(amenities_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     result_list = []
     for amenity_resp in amenities_list:
         if not __data_too_much_incomplete(amenity_resp):
-            amenity = __parse_amenity_data(amenity_resp, amenity_type)
+            amenity = __parse_amenity_data(amenity_resp)
             result_list.append(amenity)
     return result_list
 
 
-def __parse_amenity_data(amenity_resp: Dict[str, Any], amenity_type: str) -> Dict[str, Any]:
+def __parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
     amenity = {}
     tag_data = amenity_resp["tags"]
-    amenity["id"] = amenity_resp[id]
     amenity["latitude"] = amenity_resp[latitude]
     amenity["longitude"] = amenity_resp[longitude]
-    amenity["amenity"] = amenity_type
+    amenity["amenity"] = tag_data[amenity_resp_name]
     amenity["name"] = tag_data.get(name)
     amenity["city"] = tag_data.get(city, default_city)
     amenity["houseNumber"] = tag_data.get(houseNumber, __get_mocked_house_number())

@@ -3,7 +3,7 @@
   [ngStyle]="{ 'height.px': navbarHeightPx }"
 >
   <!-- ----------------------- CENTERED ---------------------- -->
-  <div class="container py-4">
+  <div class="container py-4 h-100">
     <div class="navbar-brand mx-5 my-5">
       <img (click)="onLogoClick()" src="{{ LOGO_IMG_PATH }}" class="btn" />
     </div>
@@ -55,8 +55,13 @@
             [checked]="groupIsChecked(category)"
             (change)="categoryCheckedChange(category)"
             class="custom-control-input"
+            style="cursor: pointer"
           />
-          <label [for]="category.id" class="custom-control-label">
+          <label
+            [for]="category.id"
+            style="cursor: pointer"
+            class="custom-control-label"
+          >
             {{ category.name | titlecase }}
           </label>
           <!-- ----------------------- AMENITIES ---------------------- -->
@@ -70,8 +75,13 @@
               class="custom-control-input"
               [checked]="amenity.checked"
               (change)="amenityCheckedChange(amenity)"
+              style="cursor: pointer"
             />
-            <label [for]="amenity.id" class="custom-control-label">
+            <label
+              [for]="amenity.id"
+              class="custom-control-label"
+              style="cursor: pointer"
+            >
               {{ amenity.name | titlecase }}
             </label>
           </div>

@@ -6,7 +6,7 @@ export class AmenityMarkers {
     theatre: 'theatelocal_play',
     restaurant: 'restaurant',
     pub: 'wine_bar',
-    ice_cream: 'store_front',
+    ice_cream: 'storefront',
     food_court: 'restaurant_menu',
     cafe: 'local_cafe',
     fast_food: 'fastfood',
