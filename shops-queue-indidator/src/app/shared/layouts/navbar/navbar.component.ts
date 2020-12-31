@@ -3,7 +3,7 @@ import { MarkerSchema } from 'src/app/data/schema/marker.schema';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion.model';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { isBs3 } from 'ngx-bootstrap/utils';
-import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
+import { PlaceCategoryModel } from 'src/app/model/place-category.model';
 import { AmenityTypeModel } from 'src/app/model/amenity-type.model';
 
 @Component({
@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     houseNumber: 'house number',
   };
 
-  @Input() categories: PlaceCategorySchema[];
+  @Input() categories: PlaceCategoryModel[];
   @Input() searchSuggestions: SearchSuggestionModel[] = [];
   @Input() fieldsUsedInSearchSuggestions: string[] = [];
 
@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit {
     this.logoClick.emit();
   }
 
-  groupIsChecked(category: PlaceCategorySchema): boolean {
+  groupIsChecked(category: PlaceCategoryModel): boolean {
     for (const amenity of category.amenities) {
       if (amenity.checked === false) {
         return false;
@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit {
     this.filterChange.emit();
   }
 
-  categoryCheckedChange(category: PlaceCategorySchema): void {
+  categoryCheckedChange(category: PlaceCategoryModel): void {
     const beforeValue = this.groupIsChecked(category);
     const newValue = !beforeValue;
     for (const amenity of category.amenities) {

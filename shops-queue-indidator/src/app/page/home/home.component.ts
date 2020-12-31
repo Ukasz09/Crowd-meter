@@ -6,7 +6,7 @@ import { MarkersService } from 'src/app/data/service/markers.service';
 import { SearchSuggestionModel } from 'src/app/model/search-suggestion.model';
 import { NavbarComponent } from 'src/app/shared/layouts/navbar/navbar.component';
 import { MapComponent } from './map/map.component';
-import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
+import { PlaceCategoryModel } from 'src/app/model/place-category.model';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
   chosenMarker: MarkerSchema;
   markersSchema: MarkerSchema[] = [];
-  placeCategories: PlaceCategorySchema[] = [];
+  placeCategories: PlaceCategoryModel[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
@@ -53,20 +53,29 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchCategories(): void {
-    this.categoriesService
-      .getCategories()
-      .subscribe(
-        (data: PlaceCategorySchema[]) => (this.placeCategories = data)
-      );
+    this.categoriesService.getCategories().subscribe(
+      (data: PlaceCategoryModel[]) => {
+        this.placeCategories = data;
+        console.log(this.placeCategories);
+      },
+      (err) => {
+        throw err;
+      }
+    );
   }
 
   private fetchMarkers(): void {
-    this.markersService.getMarkers().subscribe((markers: MarkerSchema[]) => {
-      this.markersSchema = markers;
-      this.mapComponent.initMarkers(markers);
-      this.mapComponent.showOnlyVisibleMarkersOnMap();
-      this.initSearchSuggestions(markers);
-    });
+    this.markersService.getMarkers().subscribe(
+      (markers: MarkerSchema[]) => {
+        this.markersSchema = markers;
+        this.mapComponent.initMarkers(markers);
+        this.mapComponent.showOnlyVisibleMarkersOnMap();
+        this.initSearchSuggestions(markers);
+      },
+      (err) => {
+        throw err;
+      }
+    );
   }
 
   private updateSearchSuggestions(): void {

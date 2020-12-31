@@ -27,7 +27,9 @@ export class MarkerDetailsComponent implements OnInit {
         this.dataIsReady = true;
         this.lastRefreshDate = new Date(Date.now());
       },
-      (_) => {}
+      (err) => {
+        throw err;
+      }
     );
   }
 

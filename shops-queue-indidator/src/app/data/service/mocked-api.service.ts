@@ -27,7 +27,7 @@ export class MockedApiService {
       ],
       [
         environment.crowdMeterApi + Slugs.MARKERS,
-        { jsonName: 'assets/mock/markers', mockedForQuery: true },
+        { jsonName: 'assets/mock/markers', mockedForQuery: false },
       ],
     ]);
   }

@@ -3,7 +3,7 @@ export class AmenityMarkers {
     casino: 'casino',
     cinema: 'movie',
     nightclub: 'whatshot',
-    theatre: 'theatelocal_play',
+    theatre: 'theaters',
     restaurant: 'restaurant',
     pub: 'wine_bar',
     ice_cream: 'storefront',

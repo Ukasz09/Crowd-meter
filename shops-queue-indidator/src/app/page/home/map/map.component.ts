@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerSchema } from 'src/app/data/schema/marker.schema';
-import { PlaceCategorySchema } from 'src/app/data/schema/place-category.schema';
+import { PlaceCategoryModel } from 'src/app/model/place-category.model';
 import { AmenityMarkers } from './amenity-markers';
 
 @Component({
@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   };
 
-  @Input() categories: PlaceCategorySchema[] = [];
+  @Input() categories: PlaceCategoryModel[] = [];
   @Output() markerClick: EventEmitter<any> = new EventEmitter();
 
   map: L.Map;
