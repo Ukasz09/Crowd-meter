@@ -46,6 +46,7 @@ def process_amenity_data(amenities_list: List[Dict[str, Any]]) -> List[Dict[str,
 def __parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
     amenity = {}
     tag_data = amenity_resp["tags"]
+    amenity["id"] = amenity_resp[id]
     amenity["latitude"] = amenity_resp[latitude]
     amenity["longitude"] = amenity_resp[longitude]
     amenity["amenity"] = tag_data[amenity_resp_name]

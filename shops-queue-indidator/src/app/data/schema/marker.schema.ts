@@ -1,6 +1,6 @@
 export class MarkerSchema {
   constructor(
-    public id: string,
+    public id: number,
     public latitude: number,
     public longitude: number,
     public city: string,
