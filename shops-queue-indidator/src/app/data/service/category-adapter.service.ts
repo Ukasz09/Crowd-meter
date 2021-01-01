@@ -6,7 +6,7 @@ import { Adapter } from './adapter';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryAdapterService implements Adapter {
+export class CategoryAdapterService implements Adapter<PlaceCategoryModel> {
   visibleOnStartupAmenities = ['cafe', 'cinema', 'nightclub', 'theatre'];
 
   constructor() {}

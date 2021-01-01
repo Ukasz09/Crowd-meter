@@ -67,14 +67,16 @@
         contact_page
       </span>
       <span class="py-2 mx-3 flex-fill"
-        ><a href="http://{{ marker.website }}">website</a>
+        ><a [href]="marker.website" target="_blank" rel="noopener noreferrer"
+          >website</a
+        >
       </span>
     </div>
     <!-- ----------------------- STATUS INFO PANEL ---------------------- -->
     <div class="py-4">
       <div class="text-center font-weight-bold py-2">OVERCROWDING LEVEL:</div>
       <app-custom-progressbar
-        [actualValue]="marker.numberOfPeoples"
+        [actualValue]="this.marker.numberOfPeoples"
         [maxValue]="marker.numberOfFreeSpace"
       ></app-custom-progressbar>
       <div class="d-flex flex-row pt-5 pb-3">

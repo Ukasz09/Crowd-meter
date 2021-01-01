@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { max } from 'rxjs/operators';
 
 @Component({
   selector: 'app-custom-progressbar',
@@ -12,6 +13,10 @@ export class CustomProgressbarComponent implements OnInit {
 
   @Input() actualValue = 0;
   @Input() maxValue = 100;
+
+  get actualProgressbarValue(): number {
+    return this.actualValue <= this.maxValue ? this.actualValue : this.maxValue;
+  }
 
   constructor() {}
 

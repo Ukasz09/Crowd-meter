@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         this.markersSchema = markers;
         this.mapComponent.initMarkers(markers);
         this.mapComponent.showOnlyVisibleMarkersOnMap();
-        this.initSearchSuggestions(markers);
+        this.updateSearchSuggestions();
       },
       (err) => {
         throw err;

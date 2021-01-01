@@ -27,6 +27,12 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
     'sunday',
   ];
 
+  // get progressbarActualValue(): number {
+  //   return this.marker.numberOfPeoples > this.marker.numberOfFreeSpace
+  //     ? this.marker.numberOfFreeSpace
+  //     : this.marker.numberOfPeoples;
+  // }
+
   constructor(private markersService: MarkersService) {}
 
   ngOnInit(): void {
