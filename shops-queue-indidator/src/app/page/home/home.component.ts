@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   markersSchema: MarkerSchema[] = [];
   placeCategories: PlaceCategoryModel[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
-  markersFetchingErrorResponse: HttpErrorResponse = undefined;
-  isMarkersFetchingError = false;
+  dataFetchingErrResponse: HttpErrorResponse = undefined;
+  isDataFetchingError = false;
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
 
@@ -61,8 +61,8 @@ export class HomeComponent implements OnInit {
         this.placeCategories = data;
       },
       (err) => {
-        this.markersFetchingErrorResponse = err;
-        this.isMarkersFetchingError = true;
+        this.dataFetchingErrResponse = err;
+        this.isDataFetchingError = true;
         throw err;
       }
     );
@@ -77,6 +77,8 @@ export class HomeComponent implements OnInit {
         this.updateSearchSuggestions();
       },
       (err) => {
+        this.dataFetchingErrResponse = err;
+        this.isDataFetchingError = true;
         throw err;
       }
     );

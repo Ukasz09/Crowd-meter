@@ -1,7 +1,7 @@
-<ng-container *ngIf="isMarkersFetchingError">
+<ng-container *ngIf="isDataFetchingError">
   <app-error-response-page-absolute
-    [errorText]="markersFetchingErrorResponse.statusText"
-    [errorCode]="markersFetchingErrorResponse.status"
+    [errorText]="dataFetchingErrResponse.statusText"
+    [errorCode]="dataFetchingErrResponse.status"
   ></app-error-response-page-absolute>
 </ng-container>
 <app-navbar
