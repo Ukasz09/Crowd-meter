@@ -1,7 +1,7 @@
 import src.dbconn as dbconn
 
 categories = [{
-    "id": "food",
+    "_id": "food",
     "name": "food",
     "amenities": [
         {
@@ -39,7 +39,7 @@ categories = [{
     ]
 },
     {
-        "id": "entertainment",
+        "_id": "entertainment",
         "name": "entertainment",
         "amenities": [
             {

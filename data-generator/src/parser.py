@@ -4,7 +4,7 @@ import datetime
 from typing import Any, List, Dict
 
 # model_field = response_field
-id = "id"
+_id = "id"
 latitude = "lat"
 longitude = "lon"
 name = "name"
@@ -46,7 +46,7 @@ def process_amenity_data(amenities_list: List[Dict[str, Any]]) -> List[Dict[str,
 def _parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
     amenity = {}
     tag_data = amenity_resp["tags"]
-    amenity["id"] = amenity_resp[id]
+    amenity["_id"] = amenity_resp[_id]
     amenity["latitude"] = amenity_resp[latitude]
     amenity["longitude"] = amenity_resp[longitude]
     amenity["amenity"] = tag_data[amenity_resp_name]

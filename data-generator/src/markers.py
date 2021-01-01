@@ -38,8 +38,8 @@ def _save_amenities_into_database(category: str, amenities_list: List[Dict[str, 
 
 def save_markers_into_db():
     for category_dict in categories.categories:
-        category = category_dict['id']
+        category = category_dict['_id']
         amenities = list(map(lambda amenity: amenity['id'], category_dict['amenities']))
         result = _request_amenities_for_category(amenities)
         _save_amenities_into_database(category, result)
-        print('Correct saved markers data for category: ', category)
+        print('Correct saved markers data for category:', category)
