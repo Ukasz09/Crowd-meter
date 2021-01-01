@@ -27,3 +27,9 @@ def get_marker(marker_id: int) -> Dict[str, any]:
         if result.count() != 0:
             return result[0]
     return {}
+
+
+def get_categories():
+    result = []
+    result += _db.categories.find({}, {'_id': False})
+    return result
