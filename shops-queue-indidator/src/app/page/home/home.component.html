@@ -1,9 +1,41 @@
-<ng-container *ngIf="isDataFetchingError">
+<ng-container *ngIf="isDataFetchingError; else noErrorTemplate">
+  <div
+    class="bg-dark"
+    style="
+      position: absolute;
+      z-index: 500;
+      width: 100vw;
+      opacity: 0.5;
+      height: 100vh;
+    "
+  ></div>
   <app-error-response-page-absolute
     [errorText]="dataFetchingErrResponse.statusText"
     [errorCode]="dataFetchingErrResponse.status"
   ></app-error-response-page-absolute>
 </ng-container>
+<ng-template #noErrorTemplate>
+  <ng-container *ngIf="!markersFetched">
+    <div
+      class="bg-dark"
+      style="
+        position: absolute;
+        z-index: 500;
+        width: 100vw;
+        opacity: 0.5;
+        height: 100vh;
+      "
+    ></div>
+    <div style="position: absolute; z-index: 999; width: 100vw; height: 100vh">
+      <app-data-loading-spinner
+        [textBold]="false"
+        textColor="cornsilk"
+        textSize="2.5em"
+        spinnerSize="8em"
+      ></app-data-loading-spinner>
+    </div>
+  </ng-container>
+</ng-template>
 <app-navbar
   [categories]="placeCategories"
   [searchSuggestions]="searchSuggestions"
@@ -21,7 +53,7 @@
     [categories]="placeCategories"
   ></app-map>
 </div>
-
 <ng-template #markerDetails>
   <app-marker-details [markerId]="chosenMarker._id"></app-marker-details>
 </ng-template>
+<ng-template></ng-template>

@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   searchSuggestions: SearchSuggestionModel[] = [];
   dataFetchingErrResponse: HttpErrorResponse = undefined;
   isDataFetchingError = false;
+  markersFetched = false;
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
 
@@ -75,6 +76,7 @@ export class HomeComponent implements OnInit {
         this.mapComponent.initMarkers(markers);
         this.mapComponent.showOnlyVisibleMarkersOnMap();
         this.updateSearchSuggestions();
+        this.markersFetched = true;
       },
       (err) => {
         this.dataFetchingErrResponse = err;

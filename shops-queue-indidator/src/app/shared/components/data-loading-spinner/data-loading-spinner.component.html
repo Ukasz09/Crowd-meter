@@ -3,10 +3,19 @@
     <div
       class="spinner-border text-warning"
       role="status"
-      style="width: 4em; height: 4em"
+      [style.width]="spinnerSize"
+      [style.height]="spinnerSize"
     >
       <span class="sr-only">Loading...</span>
     </div>
-    <div *ngIf="text !== undefined" class="h5 py-4">{{ text }}</div>
+    <div
+      *ngIf="text !== undefined"
+      class="h5 py-4"
+      [style.font-size]="textSize"
+      [style.color]="textColor"
+      [ngClass]="{ 'font-weight-bold': textBold }"
+    >
+      {{ text }}
+    </div>
   </div>
 </div>
