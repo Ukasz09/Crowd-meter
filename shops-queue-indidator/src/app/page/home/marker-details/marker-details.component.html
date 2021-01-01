@@ -41,7 +41,7 @@
           >
             <li role="menuitem">
               <a
-                *ngFor="let dayEntry of openHoursEntries"
+                *ngFor="let weekDay of openHoursKeys"
                 class="dropdown-item"
                 style="cursor: default"
               >
@@ -49,10 +49,10 @@
                   <div
                     class="col-sm-6 font-weight-bold badge-weekday text-center rounded"
                   >
-                    {{ dayEntry[0] | titlecase }}
+                    {{ weekDay | titlecase }}
                   </div>
                   <div class="col-sm-6">
-                    {{ dayEntry[1] }}
+                    {{ marker.openingHours[weekDay] }}
                   </div>
                 </div>
               </a>

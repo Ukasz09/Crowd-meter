@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { MarkerSchema } from '../schema/marker.schema';
 import { MockedApiService } from './mocked-api.service';
@@ -20,7 +21,8 @@ export class MarkersService {
   }
 
   getMarker(markerId: string): Observable<MarkerSchema> {
-    const ENDPOINT = environment.crowdMeterApi + Slugs.MARKER + '/' + markerId;
+    const URL = environment.crowdMeterApi + Slugs.MARKER;
+    const ENDPOINT = URL.replace('{id}', markerId);
     return this.http.get<MarkerSchema>(ENDPOINT);
   }
 }

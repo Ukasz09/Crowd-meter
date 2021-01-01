@@ -13,7 +13,7 @@ export class CategoryAdapterService implements Adapter {
 
   adapt(data: any): PlaceCategoryModel {
     return new PlaceCategoryModel(
-      data.id,
+      data._id,
       data.name,
       this.adaptAmenities(data.amenities)
     );

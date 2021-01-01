@@ -18,8 +18,9 @@ export class CategoryService {
   ) {}
 
   getCategories(): Observable<PlaceCategoryModel[]> {
+    const ENDPOINT = environment.crowdMeterApi + Slugs.CATEGORIES;
     return this.http
-      .get(environment.crowdMeterApi + Slugs.CATEGORIES)
+      .get(ENDPOINT)
       .pipe(
         map((data: any[]) =>
           data.map((item: any) => this.categoryAdapter.adapt(item))

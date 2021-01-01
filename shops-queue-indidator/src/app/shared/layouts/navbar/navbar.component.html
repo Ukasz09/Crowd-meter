@@ -50,7 +50,7 @@
       <li *ngFor="let category of categories" role="menuitem">
         <div class="custom-control custom-checkbox mx-3 w-100">
           <input
-            [id]="category.id"
+            [id]="category._id"
             type="checkbox"
             [checked]="groupIsChecked(category)"
             (change)="categoryCheckedChange(category)"
@@ -58,7 +58,7 @@
             style="cursor: pointer"
           />
           <label
-            [for]="category.id"
+            [for]="category._id"
             style="cursor: pointer"
             class="custom-control-label"
           >

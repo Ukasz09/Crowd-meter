@@ -17,11 +17,20 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
   dataIsReady = false;
   marker: MarkerSchema;
   dataFetchingTimerSubscription: Subscription;
+  openHoursKeys = [
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+    'sunday',
+  ];
 
   constructor(private markersService: MarkersService) {}
 
   ngOnInit(): void {
-    this.fetchMarkerDetailsWithTimer();
+    this.fetchMarkerDetailsWithPolling();
   }
 
   ngOnDestroy(): void {
@@ -30,7 +39,7 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private fetchMarkerDetailsWithTimer(): void {
+  private fetchMarkerDetailsWithPolling(): void {
     const source = timer(0, this.updateDataPeriod);
     this.dataFetchingTimerSubscription = source.subscribe((_) => {
       this.fetchMarkerDetails();
@@ -105,7 +114,7 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
     return (
       this.lastRefreshDate.getDate() +
       '.' +
-      this.lastRefreshDate.getMonth() +
+      (this.lastRefreshDate.getMonth() + 1) +
       '.' +
       this.lastRefreshDate.getFullYear() +
       ', ' +
@@ -115,9 +124,5 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
       '.' +
       this.lastRefreshDate.getSeconds()
     );
-  }
-
-  get openHoursEntries(): [string, string][] {
-    return Object.entries(this.marker.openingHours);
   }
 }

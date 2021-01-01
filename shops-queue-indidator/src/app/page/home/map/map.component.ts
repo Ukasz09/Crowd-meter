@@ -121,7 +121,7 @@ export class MapComponent implements OnInit {
   private getMarkerWrapperStyles(amenity: string): string {
     const category =
       this.categories.find((c) => c.amenities.find((a) => a.id === amenity))
-        .id ?? 'unknown';
+        ._id ?? 'unknown';
     const color = AmenityMarkers.CATEGORIES_COLOR[category] ?? 'lightSalmon';
     return `transform: rotate(-45deg);
     border-radius: 50% 50% 50% 0;
