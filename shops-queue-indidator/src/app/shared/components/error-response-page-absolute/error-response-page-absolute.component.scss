@@ -1,0 +1,7 @@
+.opacity-container {
+  width: 90vw;
+  height: 100vh;
+  position: absolute;
+  opacity: 0.8;
+  z-index: 500; //to avoid overlapping by map
+}

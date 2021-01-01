@@ -3,6 +3,7 @@ import { MarkerSchema } from 'src/app/data/schema/marker.schema';
 import { MarkersService } from 'src/app/data/service/markers.service';
 import { CustomProgressbarComponent } from 'src/app/shared/components/custom-progressbar/custom-progressbar.component';
 import { Subscription, timer } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-marker-details',
@@ -15,6 +16,7 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
   @Input() markerId: string;
   lastRefreshDate: Date;
   dataIsReady = false;
+  isDataFetchingError = false;
   marker: MarkerSchema;
   dataFetchingTimerSubscription: Subscription;
   openHoursKeys = [
@@ -26,12 +28,7 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
     'saturday',
     'sunday',
   ];
-
-  // get progressbarActualValue(): number {
-  //   return this.marker.numberOfPeoples > this.marker.numberOfFreeSpace
-  //     ? this.marker.numberOfFreeSpace
-  //     : this.marker.numberOfPeoples;
-  // }
+  errorResponse: HttpErrorResponse = undefined;
 
   constructor(private markersService: MarkersService) {}
 
@@ -60,6 +57,8 @@ export class MarkerDetailsComponent implements OnInit, OnDestroy {
         this.lastRefreshDate = new Date(Date.now());
       },
       (err) => {
+        this.isDataFetchingError = true;
+        this.errorResponse = err;
         throw err;
       }
     );

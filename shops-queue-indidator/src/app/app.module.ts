@@ -16,6 +16,8 @@ import { CustomProgressbarComponent } from './shared/components/custom-progressb
 import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DataLoadingSpinnerComponent } from './shared/components/data-loading-spinner/data-loading-spinner.component';
+import { ErrorResponsePageComponent } from './shared/components/error-response-page/error-response-page.component';
+import { ErrorResponsePageAbsoluteComponent } from './shared/components/error-response-page-absolute/error-response-page-absolute.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { DataLoadingSpinnerComponent } from './shared/components/data-loading-sp
     MarkerDetailsComponent,
     CustomProgressbarComponent,
     DataLoadingSpinnerComponent,
+    ErrorResponsePageComponent,
+    ErrorResponsePageAbsoluteComponent,
   ],
   imports: [
     HttpClientModule,

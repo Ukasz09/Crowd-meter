@@ -7,6 +7,7 @@ import { SearchSuggestionModel } from 'src/app/model/search-suggestion.model';
 import { NavbarComponent } from 'src/app/shared/layouts/navbar/navbar.component';
 import { MapComponent } from './map/map.component';
 import { PlaceCategoryModel } from 'src/app/model/place-category.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
   markersSchema: MarkerSchema[] = [];
   placeCategories: PlaceCategoryModel[] = [];
   searchSuggestions: SearchSuggestionModel[] = [];
+  markersFetchingErrorResponse: HttpErrorResponse = undefined;
+  isMarkersFetchingError = false;
 
   @ViewChild(MapComponent) mapComponent: MapComponent;
 
@@ -58,6 +61,8 @@ export class HomeComponent implements OnInit {
         this.placeCategories = data;
       },
       (err) => {
+        this.markersFetchingErrorResponse = err;
+        this.isMarkersFetchingError = true;
         throw err;
       }
     );

@@ -1,3 +1,9 @@
+<ng-container *ngIf="isMarkersFetchingError">
+  <app-error-response-page-absolute
+    [errorText]="markersFetchingErrorResponse.statusText"
+    [errorCode]="markersFetchingErrorResponse.status"
+  ></app-error-response-page-absolute>
+</ng-container>
 <app-navbar
   [categories]="placeCategories"
   [searchSuggestions]="searchSuggestions"

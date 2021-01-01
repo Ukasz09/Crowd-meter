@@ -1,0 +1,20 @@
+<div class="d-flex flex-column w-100 mx-auto">
+  <div
+    class="text-center text-capitalize w-100 pb-2 font-weight-bold"
+    [style.font-size]="errorTextFontSize"
+  >
+    {{ errorText }}
+    <div class="text-center font-weight-bold pb-2 text-danger">
+      <span class="mx-auto" [style.font-size]="errorCodeFontSize">{{
+        errorCode
+      }}</span>
+    </div>
+  </div>
+  <div class="text-center w-50 mx-auto" style="height: min-content">
+    <img
+      src="assets/images/error_character.png"
+      class="w-100"
+      alt="data-fetching-error-image"
+    />
+  </div>
+</div>
