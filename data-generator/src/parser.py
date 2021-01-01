@@ -37,13 +37,13 @@ default_website = "http://unknown-site.com"
 def process_amenity_data(amenities_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     result_list = []
     for amenity_resp in amenities_list:
-        if not __data_too_much_incomplete(amenity_resp):
-            amenity = __parse_amenity_data(amenity_resp)
+        if not _data_too_much_incomplete(amenity_resp):
+            amenity = _parse_amenity_data(amenity_resp)
             result_list.append(amenity)
     return result_list
 
 
-def __parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
+def _parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
     amenity = {}
     tag_data = amenity_resp["tags"]
     amenity["id"] = amenity_resp[id]
@@ -52,33 +52,37 @@ def __parse_amenity_data(amenity_resp: Dict[str, Any]) -> Dict[str, Any]:
     amenity["amenity"] = tag_data[amenity_resp_name]
     amenity["name"] = tag_data.get(name)
     amenity["city"] = tag_data.get(city, default_city)
-    amenity["houseNumber"] = tag_data.get(houseNumber, __get_mocked_house_number())
+    amenity["houseNumber"] = tag_data.get(houseNumber, _get_mocked_house_number())
     amenity["street"] = tag_data.get(street)
     amenity["website"] = tag_data.get(website, default_website)
-    amenity["numberOfFreeSpace"] = tag_data.get(numberOfFreeSpace, __get_mocked_free_spaces())
+    amenity["numberOfFreeSpace"] = tag_data.get(numberOfFreeSpace, _get_mocked_free_spaces())
     open_hours_resp = tag_data.get(openingHours)
     if open_hours_resp is None:
-        amenity["openingHours"] = __get_mocked_opening_hours()
+        amenity["openingHours"] = _get_mocked_opening_hours()
     else:
-        amenity["openingHours"] = __parse_opening_hours_resp(open_hours_resp)
-    amenity["numberOfPeoples"] = 0
+        amenity["openingHours"] = _parse_opening_hours_resp(open_hours_resp)
+    amenity["numberOfPeoples"] = _get_mocked_number_of_peoples()
     return amenity
 
 
-def __data_too_much_incomplete(amenity_resp: Dict[str, Any]) -> bool:
+def _data_too_much_incomplete(amenity_resp: Dict[str, Any]) -> bool:
     tag_data = amenity_resp["tags"]
     return tag_data.get(name) is None or tag_data.get(street) is None
 
 
-def __get_mocked_house_number() -> int:
+def _get_mocked_house_number() -> int:
     return random.randint(1, 100)
 
 
-def __get_mocked_free_spaces() -> int:
-    return random.randint(5, 30)
+def _get_mocked_free_spaces() -> int:
+    return random.randint(10, 30)
 
 
-def __get_mocked_opening_hours() -> Dict[str, str]:
+def _get_mocked_number_of_peoples() -> int:
+    return random.randint(0, 10)
+
+
+def _get_mocked_opening_hours() -> Dict[str, str]:
     open_hours_model = {}
     for day in working_days:
         open_hours_model[day] = "8:00-16:00"
@@ -87,7 +91,7 @@ def __get_mocked_opening_hours() -> Dict[str, str]:
     return open_hours_model
 
 
-def __parse_opening_hours_resp(open_hours_text: str) -> Dict[str, str]:
+def _parse_opening_hours_resp(open_hours_text: str) -> Dict[str, str]:
     open_hours_model = {}
     try:
         oh = hoh.OHParser(open_hours_text)
@@ -96,4 +100,4 @@ def __parse_opening_hours_resp(open_hours_text: str) -> Dict[str, str]:
             open_hours_model[day] = open_time_for_day
         return open_hours_model
     except AttributeError:
-        return __get_mocked_opening_hours()
+        return _get_mocked_opening_hours()
