@@ -18,6 +18,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DataLoadingSpinnerComponent } from './shared/components/data-loading-spinner/data-loading-spinner.component';
 import { ErrorResponsePageComponent } from './shared/components/error-response-page/error-response-page.component';
 import { ErrorResponsePageAbsoluteComponent } from './shared/components/error-response-page-absolute/error-response-page-absolute.component';
+import { DataLoadingPageAbsoluteComponent } from './shared/components/data-loading-page-absolute/data-loading-page-absolute.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { ErrorResponsePageAbsoluteComponent } from './shared/components/error-re
     DataLoadingSpinnerComponent,
     ErrorResponsePageComponent,
     ErrorResponsePageAbsoluteComponent,
+    DataLoadingPageAbsoluteComponent,
   ],
   imports: [
     HttpClientModule,

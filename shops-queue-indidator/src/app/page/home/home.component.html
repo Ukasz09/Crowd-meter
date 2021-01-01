@@ -16,24 +16,7 @@
 </ng-container>
 <ng-template #noErrorTemplate>
   <ng-container *ngIf="!markersFetched">
-    <div
-      class="bg-dark"
-      style="
-        position: absolute;
-        z-index: 500;
-        width: 100vw;
-        opacity: 0.5;
-        height: 100vh;
-      "
-    ></div>
-    <div style="position: absolute; z-index: 999; width: 100vw; height: 100vh">
-      <app-data-loading-spinner
-        [textBold]="false"
-        textColor="cornsilk"
-        textSize="2.5em"
-        spinnerSize="8em"
-      ></app-data-loading-spinner>
-    </div>
+    <app-data-loading-page-absolute></app-data-loading-page-absolute>
   </ng-container>
 </ng-template>
 <app-navbar
