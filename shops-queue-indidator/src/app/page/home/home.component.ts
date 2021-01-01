@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit {
     this.categoriesService.getCategories().subscribe(
       (data: PlaceCategoryModel[]) => {
         this.placeCategories = data;
-        console.log(this.placeCategories);
       },
       (err) => {
         throw err;

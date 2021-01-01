@@ -1,23 +1,40 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MarkerSchema } from 'src/app/data/schema/marker.schema';
 import { MarkersService } from 'src/app/data/service/markers.service';
 import { CustomProgressbarComponent } from 'src/app/shared/components/custom-progressbar/custom-progressbar.component';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-marker-details',
   templateUrl: './marker-details.component.html',
   styleUrls: ['./marker-details.component.scss'],
 })
-export class MarkerDetailsComponent implements OnInit {
+export class MarkerDetailsComponent implements OnInit, OnDestroy {
+  private readonly updateDataPeriod = 3000;
+
   @Input() markerId: string;
   lastRefreshDate: Date;
   dataIsReady = false;
   marker: MarkerSchema;
+  dataFetchingTimerSubscription: Subscription;
 
   constructor(private markersService: MarkersService) {}
 
   ngOnInit(): void {
-    this.fetchMarkerDetails();
+    this.fetchMarkerDetailsWithTimer();
+  }
+
+  ngOnDestroy(): void {
+    if (this.dataFetchingTimerSubscription !== undefined) {
+      this.dataFetchingTimerSubscription.unsubscribe();
+    }
+  }
+
+  private fetchMarkerDetailsWithTimer(): void {
+    const source = timer(0, this.updateDataPeriod);
+    this.dataFetchingTimerSubscription = source.subscribe((_) => {
+      this.fetchMarkerDetails();
+    });
   }
 
   private fetchMarkerDetails(): void {
@@ -80,7 +97,8 @@ export class MarkerDetailsComponent implements OnInit {
   }
 
   get numberOfActualFreeSpaces(): number {
-    return this.marker.numberOfFreeSpace - this.marker.numberOfPeoples;
+    const spaces = this.marker.numberOfFreeSpace - this.marker.numberOfPeoples;
+    return spaces > 0 ? spaces : 0;
   }
 
   get lastRefreshDateText(): string {
