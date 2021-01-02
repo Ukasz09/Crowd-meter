@@ -8,8 +8,8 @@ API_URL = "http://overpass-api.de/api/interpreter"
 QUERY_TIMEOUT = 900
 WROCLAW_OSM_ID = 2805690
 AREA_OSM_ID = 3600000000 + WROCLAW_OSM_ID
-CITY_AREA = "area(" + str(AREA_OSM_ID) + ")" + "[admin_level=8];"
-COUNTRY_AREA = 'area["ISO3166-1"="PL"]' + '[admin_level=2];'
+CITY_AREA = "area({area})[admin_level=8];".format(area=str(AREA_OSM_ID))
+COUNTRY_AREA = 'area["ISO3166-1"="PL"][admin_level=2];'
 
 
 def _get_amenity_query(amenity_type: str, timeout: int = QUERY_TIMEOUT, area: str = CITY_AREA) -> str:
@@ -42,4 +42,4 @@ def save_markers_into_db():
         amenities = list(map(lambda amenity: amenity['id'], category_dict['amenities']))
         result = _request_amenities_for_category(amenities)
         _save_amenities_into_database(category, result)
-        print('Correct saved markers data for category:', category)
+        print('MARKERS for {cat} - Correct saved into a database'.format(cat=category.upper()))

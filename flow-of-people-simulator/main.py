@@ -3,7 +3,7 @@ import dbconn
 import random
 
 DELAY_TIME_SEC = 2.0
-MIN_INC_VALUE = -2
+MIN_INC_VALUE = -3
 MAX_INC_VALUE = 2
 
 
@@ -27,7 +27,8 @@ def update_crowd_level():
         collection.update_many({}, {'$inc': {'numberOfPeoples': inc_value}})
         fix_result = collection.update_many({'numberOfPeoples': {'$lt': 0}},
                                             {'$set': {'numberOfPeoples': random.randint(0, MAX_INC_VALUE)}})
-        print('updated:', key, 'inc_value=', inc_value, ',fixed:', fix_result.modified_count)
+        print('updated:', key.upper(), ', inc value:', inc_value, ', fixed (< zero):',
+              fix_result.modified_count)
 
 
 def update_crowd_level_on_timer():

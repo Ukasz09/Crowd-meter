@@ -1,12 +1,14 @@
 from pymongo import MongoClient
 import configparser
+import os
 
-db_config = configparser.ConfigParser()
-db_config.read('dbconfig.ini')
-db_conn_url = "mongodb+srv://" + db_config['mongoDB']['user'] + ":" + db_config['mongoDB']['pass'] + "@" + \
-              db_config['mongoDB']['host'] + "/" + db_config['mongoDB']['db'] + "?retryWrites=true&w=majority"
-conn = MongoClient(db_conn_url)
-db = conn.ShopsQueueIndicator
+_config = configparser.ConfigParser()
+_config.read(os.path.join(os.path.dirname(__file__), '../dbconfig.ini'))
+_conn_str = "mongodb+srv://{user}:{password}@{host}/{db}?retryWrites=true&w=majority"
+_conn = MongoClient(_conn_str.format(user=_config['mongoDB']['user'], password=_config['mongoDB']['pass'],
+                                     host=_config['mongoDB']['host'], db=_config['mongoDB']['db']))
+
+db = _conn.ShopsQueueIndicator
 categories_collections = {
     'food': db.food,
     'entertainment': db.entertainment,

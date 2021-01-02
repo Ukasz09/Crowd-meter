@@ -64,4 +64,4 @@ categories = [{
 
 def save_categories_into_db():
     dbconn.db.categories.insert_many(categories)
-    print('Correct saved categories into database')
+    print('CATEGORIES - Correct saved into a database')
