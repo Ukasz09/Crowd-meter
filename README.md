@@ -19,16 +19,16 @@ Application visualizate how many peoples is already in given public utility obje
 
 - **Front-end**
 
-First of all, make sure that you have installed NodeJs - if not, you can download it from here:
-`https://nodejs.org/en/download/`
+  First of all, make sure that you have installed NodeJs - if not, you can download it from here:
+  `https://nodejs.org/en/download/`
 
-Then install required prerequisites on your development machine:
+  Then install required prerequisites on your development machine:
 
-`npm install --save`
+  `npm install --save`
 
-I case of running application on dev server make sure that you have installed AngularCLI:
+  I case of running application on dev server make sure that you have installed AngularCLI:
 
-`npm install -g @angular/cli`
+  `npm install -g @angular/cli`
 
 ---
 
@@ -36,15 +36,12 @@ I case of running application on dev server make sure that you have installed An
 
 - **Front-end**
 
-`npm start` or `ng serve`
+  `npm start` or `ng serve`
 
-This will start a dev server. After that navigate to page `http://localhost:4200/`
+  This will start a dev server. After that navigate to page `http://localhost:4200/`
 
 - **Back-end**
   In order to run each of the back-end services, you can use wrapper scirpt `./run.sh` from main folder for each of the projecet or run file `main.py` / `app.py` manually
-
-- **Database**
-  Used database is mongoDB. For default it run on localhost but you can change that if you wich
 
 ---
 
