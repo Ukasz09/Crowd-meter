@@ -1,5 +1,7 @@
 # :bar_chart: Shops Queue Indidator [![License](https://img.shields.io/badge/licence-MIT-blue)](https://choosealicense.com/licenses/mit/) [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](https://github.com/Ukasz09/Printer-Simulator-Game)
 
+### Description
+
 Application visualizate how many peoples is already in given public utility objects. Project is composed of 4 parts:
 
 - **Api** _(Python, Flask, PyMongo)_
@@ -10,7 +12,8 @@ Application visualizate how many peoples is already in given public utility obje
   Scripts simulate database flow. Every **_x_** seconds (default=2) change amount of peoples for each of the saved public utility object
 - **Front-end** _(Angular, Typescript, HTML, SCSS)_
   Front-end for application
-  </br>
+
+---
 
 ### Prerequisites
 
@@ -27,6 +30,8 @@ I case of running application on dev server make sure that you have installed An
 
 `npm install -g @angular/cli`
 
+---
+
 ### Running application
 
 - **Front-end**
@@ -41,6 +46,8 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 - **Database**
   Used database is mongoDB. For default it run on localhost but you can change that if you wich
 
+---
+
 ### Screenshots
 
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png)
@@ -50,16 +57,18 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/5.png)
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/6.png)
 
+---
+
 ### TODO's
 
 - heroku app deployement
 - python requirements file
+- database setup
+
+---
 
 ### 📫 Contact
 
 Created by <br/>
 <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a>
 <br/> gajerski.lukasz@gmail.com - feel free to contact me! ✊
-
-https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png
-https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/2.png
