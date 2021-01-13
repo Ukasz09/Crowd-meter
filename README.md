@@ -39,6 +39,9 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 - **Back-end**
   In order to run each of the back-end services, you can use wrapper scirpt `./run.sh` from main folder for each of the projecet or run file `main.py` / `app.py` manually
 
+- **Database**
+  Used database is mongoDB. For default it run on localhost but you can change that if you wich
+
 <br/>
 ### Screenshots
 
@@ -47,6 +50,7 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/3.png)
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/4.png)
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/5.png)
+![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/6.png)
 
 <br/>
 ### TODO's
@@ -58,3 +62,6 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 Created by <br/>
 <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a>
 <br/> gajerski.lukasz@gmail.com - feel free to contact me! ✊
+
+https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png
+https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/2.png
