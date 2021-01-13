@@ -27,7 +27,6 @@ I case of running application on dev server make sure that you have installed An
 
 `npm install -g @angular/cli`
 
-</br>
 ### Running application
 
 - **Front-end**
@@ -42,7 +41,6 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 - **Database**
   Used database is mongoDB. For default it run on localhost but you can change that if you wich
 
-<br/>
 ### Screenshots
 
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png)
@@ -52,13 +50,13 @@ This will start a dev server. After that navigate to page `http://localhost:4200
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/5.png)
 ![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/6.png)
 
-<br/>
 ### TODO's
+
 - heroku app deployement
 - python requirements file
 
-<br/>
-## 📫 Contact 
+### 📫 Contact
+
 Created by <br/>
 <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a>
 <br/> gajerski.lukasz@gmail.com - feel free to contact me! ✊
