@@ -1,17 +1,13 @@
-# :bar_chart: Queue Indidator [![License](https://img.shields.io/badge/licence-MIT-blue)](https://choosealicense.com/licenses/mit/) [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](https://github.com/Ukasz09/Printer-Simulator-Game)
+# :signal_strength: Crowd Meter [![License](https://img.shields.io/badge/licence-MIT-blue)](https://choosealicense.com/licenses/mit/) [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](https://github.com/Ukasz09/Printer-Simulator-Game)
 
 ### Description
 
-Application visualizate how many peoples is already in given public utility objects. Project is composed of 4 parts:
+Application visualize how many people are currently in given objects of general public utility. Project is composed of 4 parts:
 
-- **Api** _(Python, Flask, PyMongo)_
-  Provide endpoints for front-end web applications
-- **Data-generator** _(Python, PyMongo)_
-  Fetch amenities data (using overpass-api), parse it and adopt to fit given model requirements. After that save it in database collections
-- **Flow-of-people-simulator** _(Python, PyMongo)_
-  Scripts simulate database flow. Every **_x_** seconds (default=2) change amount of peoples for each of the saved public utility object
-- **Front-end** _(Angular, Typescript, HTML, SCSS)_
-  Front-end for application
+| Front-end                       | API                             | Data-generator                                                                                                                            | Flow-of-people-simulator                                                                                         |
+| ------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Front-end for application       | Provide endpoints for front-end | Fetch amenities data (using overpass-api), parse it and adopt to fit given model requirements. After that save it in database collections | Simulate crowd. Every **_x_** seconds _(default=2)_ change amount of people for each of the saved public utility |
+| Angular, TypeScript, HTML, SCSS | Python, Flask                   | Python, PyMongo                                                                                                                           | Python, PyMongo                                                                                                  |
 
 ---
 
@@ -47,25 +43,17 @@ Application visualizate how many peoples is already in given public utility obje
 
 ### Screenshots
 
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png)
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/2.png)
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/3.png)
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/4.png)
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/5.png)
-![alt text](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/6.png)
-
----
-
-### TODO's
-
-- heroku app deployement
-- python requirements file
-- database setup
+![Demo GIF](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/demo.gif)
+![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png)
+![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/2.png)
+![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/3.png)
+![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/4.png)
+![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/5.png)
 
 ---
 
 ### 📫 Contact
 
-Created by <br/>
-<a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a>
-<br/> gajerski.lukasz@gmail.com - feel free to contact me! ✊
+| Created by                                                                                                                                       | gajerski.lukasz@gmail.com   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a> | Feel free to contact me! ✊ |
