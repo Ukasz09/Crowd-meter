@@ -41,7 +41,7 @@ Application visualize how many people are currently in given objects of general 
 
 ---
 
-### Screenshots
+### Demo
 
 ![Demo GIF](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/demo.gif)
 ![](https://raw.githubusercontent.com/Ukasz09/Queue-indicator-app/master/readmeImages/1.png)
@@ -54,6 +54,6 @@ Application visualize how many people are currently in given objects of general 
 
 ### 📫 Contact
 
-| Created by                                                                                                                                       | gajerski.lukasz@gmail.com   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a> | Feel free to contact me! ✊ |
+| Created by                                                                                                                                       | gajerski.lukasz@gmail.com        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| <a href="https://github.com/Ukasz09" target="_blank"><img src="https://avatars0.githubusercontent.com/u/44710226?s=460&v=4"  width="100px;"></a> | Feel free to contact me! :punch: |
